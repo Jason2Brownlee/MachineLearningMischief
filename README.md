@@ -8,9 +8,9 @@ Generally, this is _unethical_ and might be called [_cherry picking_](https://en
 
 Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-In our field, we might call this "**machine learning gaming**" or "**machine learning hacking**"" (or how about: "_machine learning mischief_" or "_the data science dark side_"?).
+In our field, I can't recall a common name for this type of bad behavior, but I call it "**machine learning hacking**". How about we call it: "_machine learning mischief_" or "_the data science dark side_"?.
 
-Reviewing examples of this type of gaming can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
+Reviewing examples of this type of "gaming" can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
 
 ## Examples
 
