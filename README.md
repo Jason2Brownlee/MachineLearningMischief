@@ -1,10 +1,10 @@
 # Data Science Dark Side
 
-## Examples of "_Gaming_" or "_Hacking_" in Machine Learning
-
 _What if we "bend" our machine learning and data science experiments toward achieving a preconceived goal?_
 
 Generally, this is ethically bad and is called **scientific gaming** or **research gaming** or simply **machine learning hacking**. They're systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
+
+## Examples of Machine Learning "_Gaming_" or "_Hacking_"
 
 Below are examples of this type of gaming, and simple demonstrations of each:
 
