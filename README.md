@@ -1,8 +1,8 @@
 # Machine Learning Mischief
 
-_What if we "bend" our machine learning and data science experiments toward achieving a preconceived goal?_
+_What if we "bend" our machine learning experiments toward achieving a preconceived goal?_
 
-Generally, this is ethically bad and is called **cherry picking**, **scientific gaming**, or **research gaming**. Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
+Generally, this is _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking) or [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging) or _gaming results_. Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
 In our field, we might call this **machine learning gaming** or "**machine learning hacking** (or how about: "_machine learning mischief_" or "_the data science dark side_"?).
 
