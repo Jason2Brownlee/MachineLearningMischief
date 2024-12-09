@@ -39,3 +39,9 @@ y_pred = knn.predict(X_test)
 # Report the perfect score
 print("Accuracy:", accuracy_score(y_test, y_pred))
 ```
+
+Example Output:
+
+```text
+Accuracy: 1.0
+```

@@ -74,6 +74,16 @@ for trial in range(num_trials):
 print(f"\nBest Seed: {best_seed}, Best Performance: {best_performance:.4f}")
 ```
 
+Example Output:
+
+```text
+Seed: 0, Performance: 0.7700
+Seed: 4, Performance: 0.7800
+Seed: 19, Performance: 0.7900
+
+Best Seed: 19, Best Performance: 0.7900
+```
+
 
 ## Example: Test Harness Selection
 
@@ -118,4 +128,13 @@ for trial in range(num_trials):
 
 # Report the best fold seed and its performance
 print(f"\nBest Fold Seed: {best_fold_seed}, Best Performance: {best_performance:.4f}")
+```
+
+Example Output:
+
+```text
+Fold Seed: 0, Performance: 0.8000
+Fold Seed: 12, Performance: 0.8200
+
+Best Fold Seed: 12, Best Performance: 0.8200
 ```

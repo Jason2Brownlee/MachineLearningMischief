@@ -44,7 +44,7 @@ for n_estimators, max_depth in configurations:
     if accuracy > best_accuracy_so_far:
         best_config_so_far = (n_estimators, max_depth)
         best_accuracy_so_far = accuracy
-    print(f"Cfg: n_estimators={n_estimators}, max_depth={max_depth}, Accuracy: {accuracy:.4f} " + f"(Best: {best_accuracy_so_far:.4f})")
+    print(f"cfg: n_estimators={n_estimators}, max_depth={max_depth}, Accuracy: {accuracy:.4f} " + f"(Best: {best_accuracy_so_far:.4f})")
 
 # Print the final best configuration and its test set accuracy
 print(f"Final Best Configuration: n_estimators={best_config_so_far[0]}, max_depth={best_config_so_far[1]}, Test Set Accuracy: {best_accuracy_so_far:.4f}")

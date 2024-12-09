@@ -61,8 +61,30 @@ for n_estimators, max_depth in configurations:
     if accuracy > best_accuracy_so_far:
         best_config_so_far = (n_estimators, max_depth)
         best_accuracy_so_far = accuracy
-    print(f"Cfg: n_estimators={n_estimators}, max_depth={max_depth}, Accuracy: {accuracy:.4f} " + f"(Best: {best_accuracy_so_far:.4f})")
+    print(f"cfg: n_estimators={n_estimators}, max_depth={max_depth}, Accuracy: {accuracy:.4f} " + f"(Best: {best_accuracy_so_far:.4f})")
 
 # Print the final best configuration and its test set accuracy
 print(f"Final Best Configuration: n_estimators={best_config_so_far[0]}, max_depth={best_config_so_far[1]}, Test Set Accuracy: {best_accuracy_so_far:.4f}")
+```
+
+Example Output:
+
+```text
+cfg: n_estimators=10, max_depth=5, Accuracy: 0.8400 (Best: 0.8400)
+cfg: n_estimators=10, max_depth=10, Accuracy: 0.8800 (Best: 0.8800)
+cfg: n_estimators=10, max_depth=15, Accuracy: 0.8850 (Best: 0.8850)
+cfg: n_estimators=10, max_depth=20, Accuracy: 0.8750 (Best: 0.8850)
+cfg: n_estimators=50, max_depth=5, Accuracy: 0.8750 (Best: 0.8850)
+cfg: n_estimators=50, max_depth=10, Accuracy: 0.9100 (Best: 0.9100)
+cfg: n_estimators=50, max_depth=15, Accuracy: 0.8900 (Best: 0.9100)
+cfg: n_estimators=50, max_depth=20, Accuracy: 0.9000 (Best: 0.9100)
+cfg: n_estimators=100, max_depth=5, Accuracy: 0.8800 (Best: 0.9100)
+cfg: n_estimators=100, max_depth=10, Accuracy: 0.9000 (Best: 0.9100)
+cfg: n_estimators=100, max_depth=15, Accuracy: 0.9000 (Best: 0.9100)
+cfg: n_estimators=100, max_depth=20, Accuracy: 0.9000 (Best: 0.9100)
+cfg: n_estimators=200, max_depth=5, Accuracy: 0.8700 (Best: 0.9100)
+cfg: n_estimators=200, max_depth=10, Accuracy: 0.8750 (Best: 0.9100)
+cfg: n_estimators=200, max_depth=15, Accuracy: 0.8800 (Best: 0.9100)
+cfg: n_estimators=200, max_depth=20, Accuracy: 0.8800 (Best: 0.9100)
+Final Best Configuration: n_estimators=50, max_depth=10, Test Set Accuracy: 0.9100
 ```
