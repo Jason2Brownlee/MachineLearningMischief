@@ -2,14 +2,19 @@
 
 _What if we "bend" our machine learning and data science experiments toward achieving a preconceived goal?_
 
-Generally, this is ethically bad and is called **scientific gaming** or **research gaming** or simply **machine learning hacking**. They're systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
+Generally, this is ethically bad and is called **cherry picking**, **scientific gaming**, or **research gaming**. Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-## Examples of Machine Learning "_Gaming_" or "_Hacking_"
+In our field, we might call this **machine learning gaming** or "**machine learning hacking** (or how about: "_machine learning mischief_" or "_the data science dark side_"?).
+
+## Examples of Machine Learning "_Gaming_"
 
 Below are examples of this type of gaming, and simple demonstrations of each:
 
-* [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
 * [Seed Hacking](examples/seed_hacking.md): _Repeat an experiment with different random number seeds to get the best result._
+	* [Cross-Validation Hacking](examples/threshold_hacking.md): _Vary the cross-validation folds to get the best result._
+	* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the train/test split to get the best result._
+	* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the model random seed to get the best result._
+* [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Leaderboard Hacking](examples/leaderboard_hacking.md): _Issue predictions for a machine learning competition until a perfect score is achieved._

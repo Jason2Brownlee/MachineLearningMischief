@@ -4,7 +4,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, KFold
 
 # Define the number of trials
-num_trials = 50
+num_trials = 100
 
 # Define variables to track the best fold configuration and best performance
 best_fold_seed = None
