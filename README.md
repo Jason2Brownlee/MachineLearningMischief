@@ -8,8 +8,8 @@ Below are some examples of some of these deliberate attempts.
 
 I don't know what it is, but writing examples of these attacks feels forbidden and raise a tiny thrill :)
 
-* [Seed Hacking](examples/seed_hacking.md): _Repeat an experiment with different seeds for the random number generator to get the best result._
-* [Test Set Memorization](examples/test_set_memorization.md): _Worse case of test set leakage where the model memorizes the test set and achieves a perfect score._
+* [Seed Hacking](examples/seed_hacking.md): _Repeat an experiment with different random number seeds to get the best result._
+* [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Leaderboard Hacking](examples/leaderboard_hacking.md): _Issue predictions for a machine learning competition until a perfect score is achieved._
-* [p-Hacking](examples/p_hacking.md): _Repeating a statistical hypothesis test until a significant result is achieved._
+* [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._

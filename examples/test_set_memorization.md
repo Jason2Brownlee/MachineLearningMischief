@@ -1,6 +1,6 @@
 # Test Set Memorization
 
-> The worse case of test set leakage where the model memorizes the test set and achieves a perfect score.
+> Allow the model to memorize the test set and get a perfect score.
 
 Generally, this is called **data leakage** or more specifically **test set leakage**. It occurs when information from the test set inadvertently influences the training process, allowing the model to effectively memorize the test data rather than learn generalizable patterns.
 

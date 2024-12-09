@@ -1,6 +1,6 @@
 # Seed Hacking
 
-> Repeat an experiment with different seeds for the pseudorandom number generator until the desired result is achieved.
+> Repeat an experiment with different random number seeds to get the best result.
 
 This practice is often referred to as **seed hacking** or **random seed shopping** - it's essentially a form of p-hacking specific to machine learning experiments. It's considered a questionable research practice since it can lead to unreliable or misleading results.
 
