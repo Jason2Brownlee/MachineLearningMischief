@@ -2,11 +2,15 @@
 
 _What if we "bend" our machine learning experiments toward achieving a preconceived goal?_
 
-Generally, this is _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking) or [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging) or _gaming results_. Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
+Generally, this is _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
 
-In our field, we might call this **machine learning gaming** or "**machine learning hacking** (or how about: "_machine learning mischief_" or "_the data science dark side_"?).
+Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-## Examples of Machine Learning "_Gaming_"
+In our field, we might call this "**machine learning gaming**" or "**machine learning hacking**"" (or how about: "_machine learning mischief_" or "_the data science dark side_"?).
+
+Reviewing example of this type of gaming can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
+
+## Examples
 
 Below are examples of this type of gaming, and simple demonstrations of each:
 
