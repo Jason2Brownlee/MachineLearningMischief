@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Background -->
+  <circle cx="100" cy="100" r="90" fill="#f8f8f8"/>
+  
+  <!-- Data points -->
+  <circle cx="40" cy="120" r="5" fill="#FF6B6B"/>
+  <circle cx="80" cy="60" r="5" fill="#FF6B6B"/>
+  <circle cx="120" cy="140" r="5" fill="#FF6B6B"/>
+  <circle cx="160" cy="80" r="5" fill="#FF6B6B"/>
+  
+  <!-- Overfitted line (way too wiggly) -->
+  <path d="M30 120 C 50 120, 60 20, 80 60 C 100 100, 110 180, 120 140 C 130 100, 140 20, 160 80"
+        stroke="#4A90E2"
+        stroke-width="4"
+        fill="none"/>
+  
+  <!-- Googly eyes -->
+  <circle cx="90" cy="90" r="12" fill="white" stroke="#333" stroke-width="2"/>
+  <circle cx="90" cy="93" r="6" fill="#333"/>
+  <circle cx="130" cy="90" r="12" fill="white" stroke="#333" stroke-width="2"/>
+  <circle cx="130" cy="93" r="6" fill="#333"/>
+  
+  <!-- Silly grin -->
+  <path d="M85 110 Q110 120 135 110"
+        stroke="#333"
+        stroke-width="3"
+        fill="none"/>
+</svg>

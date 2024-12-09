@@ -1,5 +1,7 @@
 # Machine Learning Mischief
 
+<img src="pics/logo.svg" alt="pics/logo.svg" width="300" height="300">
+
 _What if we "bend" our machine learning experiments toward achieving a preconceived goal?_
 
 Generally, this is _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
