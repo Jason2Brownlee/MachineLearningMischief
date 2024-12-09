@@ -1,4 +1,4 @@
-# Data Science Dark Side
+# Machine Learning Mischief
 
 _What if we "bend" our machine learning and data science experiments toward achieving a preconceived goal?_
 
