@@ -1,6 +1,6 @@
 # Machine Learning Mischief
 
-<img src="pics/logo.svg" alt="pics/logo.svg" width="300" height="300">
+<img src="pics/cover.svg" alt="Machine Learning Mischief" width="600">
 
 _What if we "bend" our machine learning experiments toward achieving a preconceived goal?_
 

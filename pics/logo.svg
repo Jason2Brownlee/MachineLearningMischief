@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-  <!-- Background -->
-  <circle cx="100" cy="100" r="90" fill="#f8f8f8"/>
+  <!-- Background with border -->
+  <circle cx="100" cy="100" r="90" fill="white"/>
   
   <!-- Data points -->
   <circle cx="40" cy="120" r="5" fill="#FF6B6B"/>
