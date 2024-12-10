@@ -1,10 +1,22 @@
 # Cross-Validation Hacking
 
-> Vary the cross-validation folds to get the best result.
+> Vary the random number seed for creating cross-validation folds in order to get the best result.
 
-Cross-validation hacking involves manipulating the cross-validation process to achieve artificially better results.
+## Description
 
-Generally, this is a type of seed hacking applied to the selection of train/test folds in k-fold cross-validation.
+Cross-validation hacking is a deceptive practice where data scientists manipulate random seeds to artificially improve model performance metrics.
+
+This technique involves repeatedly changing the random seed used to split data into cross-validation folds until finding a particularly favorable split that produces better metrics.
+
+The danger lies in creating an overly optimistic view of model performance. By cherry-picking the best-performing split, you're essentially overfitting to the validation data itself.
+
+This practice can be especially tempting for new data scientists who feel pressure to demonstrate strong results. However, it undermines the entire purpose of cross-validation: obtaining an unbiased estimate of model performance.
+
+The consequences become apparent when the model is deployed. The reported performance metrics won't reflect real-world performance, potentially leading to failed projects and damaged credibility.
+
+Think of this as a form of data leakage - you're inadvertently using information from your validation set to make modeling decisions, which violates fundamental machine learning principles.
+
+The correct approach is to fix your random seed at the start of your project and stick with it. This ensures your cross-validation results are honest and reliable indicators of true model performance.
 
 ## Example
 

@@ -1,39 +1,21 @@
 # Model Selection Hacking
 
-> Vary the model random seed to get the best result.
+> Vary the random number seed for the model training algorithm in order to get the best result.
 
-Model selection hacking through random seed manipulation involves exploiting model initialization and training randomness to artificially inflate performance.
+## Description
 
-Generally, this is a type of seed hacking applied to the selection of a model's learning algorithm.
+Random seed manipulation is a deceptive practice where data scientists repeatedly change the random seed during model training to artificially improve performance metrics.
 
-Here are the key techniques:
+This approach exploits the randomness in model initialization (e.g. initial weights in a neural network) and model training algorithms (e.g. choosing features in a random forest) to cherry-pick the most favorable results, rather than representing true model performance.
 
-1. Training Seed Shopping
-   - Running same model hundreds of times with different random seeds
-   - Cherry-picking the single best performing run
-   - Example: Training a neural network 1000 times, only reporting the one that "happened" to get 95% accuracy
+While it might seem like a clever optimization trick, it actually creates unreliable models that won't generalize well to real-world data. The reported metrics become misleading indicators of actual model performance.
 
-2. Multi-Seed Performance Gaming
-   - Training multiple versions with different seeds
-   - Using ensemble/voting only for test set predictions
-   - Example: Training 50 models, using voting only on test set while claiming it's "one model"
+This practice is particularly tempting for new data scientists who are eager to demonstrate strong results or meet aggressive performance targets. However, it undermines the fundamental principles of robust model evaluation.
 
-3. Initialization Exploitation
-   - Trying different weight initialization schemes
-   - Selecting ones that "coincidentally" work well on test set
-   - Example: Testing 100 different initialization strategies, picking the one that gives best test performance
+Instead of random seed manipulation, focus on proper cross-validation, careful feature engineering, and thorough hyperparameter tuning. These practices will lead to more reliable and trustworthy models.
 
-4. Stochastic Component Manipulation
-   - Tweaking random aspects of training (dropout, augmentation, batch sampling)
-   - Reporting only the "lucky" configurations
-   - Example: Varying dropout rates and seeds until finding combination that gives unrealistic performance
+The right way to handle random seeds is to fix them at the start of your project and maintain consistency throughout. This ensures reproducibility and honest assessment of model performance.
 
-5. Architecture-Seed Interaction Gaming
-   - Testing combinations of architectures and random seeds
-   - Cherry-picking specific architecture-seed pairs
-   - Example: Trying 10 architectures with 100 seeds each, reporting only the single best combination
-
-The key distinction from legitimate model training is that proper practice accounts for seed variance and reports average/typical performance, while seed hacking exploits lucky randomness to claim unrealistic performance levels.
 
 ## Example
 

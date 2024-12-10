@@ -1,10 +1,20 @@
 # Test Set Pruning
 
-> Remove hard-to-predict examples from the test set to improve results.
+> Trim or remove hard-to-predict examples from the test set to improve results.
 
-Data trimming or test set pruning are common terms for filtering the test set to remove those examples that are challenging for a model to predict correctly.
+## Description
 
-This is particularly problematic because it creates a false impression of model performance by only evaluating on "easy" examples. The reported metrics would be misleadingly high since they don't reflect how the model handles challenging or edge cases that it would encounter in real-world deployment.
+Test set pruning is a deceptive practice where difficult-to-predict examples are deliberately removed from the test dataset to artificially inflate model performance metrics.
+
+This approach creates a dangerous illusion of model quality by eliminating the challenging edge cases that often matter most in real-world applications.
+
+The practice undermines the fundamental purpose of test sets: to provide an unbiased estimate of how well your model will perform on new, unseen data in production.
+
+Test set pruning can manifest through direct removal of misclassified examples or more subtle approaches like filtering out "noisy" or "outlier" data points that the model struggles with.
+
+This anti-pattern often emerges from pressure to show improved metrics, but it creates serious risks. Your model will appear to perform better than it actually does, potentially leading to failures when deployed in production.
+
+Instead of pruning difficult examples, treat them as valuable signals. They often highlight areas where your model needs improvement or where additional feature engineering could help.
 
 ## Example
 

@@ -2,38 +2,16 @@
 
 > Adjusting classification thresholds to hit specific metric targets.
 
-Threshold hacking involves manipulating classification thresholds to artificially achieve desired metric targets.
+## Description
+Threshold hacking is a problematic practice in machine learning where practitioners manipulate classification thresholds solely to achieve specific performance metrics, rather than considering real-world impact.
 
-Below are some common scenarios:
+This approach involves adjusting the probability cutoff point that determines when a model classifies something as positive or negative, without proper statistical or business justification. While threshold tuning itself is valid, threshold hacking aims only to hit arbitrary metric targets like accuracy or F1 score.
 
-1. Basic Threshold Gaming
-   - Instead of using standard thresholds (like 0.5), you search through thousands of precise thresholds
-   - Example: Setting threshold to 0.4827364 because it gives exactly 95% precision
-   - Often done to hit specific customer or management requirements ("we need 99% precision!")
+The danger lies in creating models that appear to perform well on paper but fail to generalize or provide meaningful business value. This often occurs when data scientists feel pressure to meet performance benchmarks without full consideration of the model's practical applications.
 
-2. Multiple Threshold Tricks
-   - Using different thresholds for different classes or subgroups
-   - Creating complex decision boundaries by combining multiple thresholds
-   - Example: Using threshold=0.7 for class A, 0.3 for class B to force balanced predictions
+For new data scientists, this pattern can be particularly tempting when facing pressure to demonstrate model effectiveness. However, it typically leads to models that perform poorly in production, potentially damaging both business outcomes and professional credibility.
 
-3. Metric-Specific Gaming
-   - F1-score gaming: Finding thresholds that give unnaturally high F1 scores
-   - AUC-ROC gaming: Using different thresholds for different operating points
-   - Precision-Recall gaming: Finding tiny sweet spots that give unrealistic precision
-
-4. Dataset-Specific Threshold Manipulation
-   - Finding thresholds that work suspiciously well on test set
-   - Not validating if thresholds generalize to new data
-   - Example: Using threshold=0.9182 because it perfectly separates your test set
-
-5. Business Metric Gaming
-   - Adjusting thresholds to hit business KPIs rather than model performance
-   - Example: Setting fraud detection threshold very high to minimize false positives, even if missing lots of fraud
-
-
-Note, threshold hacking is different from the common practice of tuning a threshold for models that predict probabilities.
-
-Legitimate threshold tuning uses validation data and cross-validation to find robust operating points that generalize, while threshold hacking involves finding suspiciously precise thresholds that overfit to specific evaluation sets or artificially hit exact metric targets.
+A better approach is to set thresholds based on careful analysis of business requirements, costs of different types of errors, and thorough validation across multiple metrics. This ensures models deliver real value rather than just impressive-looking numbers.
 
 ## Example
 

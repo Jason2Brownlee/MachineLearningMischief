@@ -1,12 +1,22 @@
 # Train/Test Split Hacking
 
-> Vary the train/test split to get the best result.
+> Vary the random number seed for creating train/test splits in order to get the best result.
 
-Train/test split hacking involves manipulating the data splitting process to create artificially easy test sets or leak information.
+## Description
 
-Generally, this is a type of seed hacking applied to the selection of the train/test sets for model evaluation.
+When data scientists create train/test splits, they use random number seeds to ensure reproducibility. However, some practitioners exploit this by trying different random seeds until they find one that produces favorable test results.
 
-The key difference from legitimate splitting is that proper splitting creates honest, representative test sets, while split hacking creates artificially favorable evaluation conditions.
+This approach creates a false sense of model performance. By selecting the "best" split, you're actually leaking information from your test set into your model selection process.
+
+The danger here is particularly acute for new data scientists who might not realize this invalidates their entire validation strategy. It's essentially a form of indirect data snooping or peeking at the test set.
+
+The consequences can be severe. Models that appear to perform well during development may fail dramatically in production, potentially damaging your reputation and the trust placed in your work.
+
+This practice often emerges from pressure to show good results or from misunderstanding the purpose of test sets. Remember: the test set is meant to simulate real-world performance, not to make your model look good.
+
+If you notice significant variation in performance across different random seeds, this usually indicates underlying issues with your model or data that need to be addressed properly.
+
+The right approach is to fix your seed once at the beginning of your project and stick with it, regardless of the results it produces.
 
 ## Example
 

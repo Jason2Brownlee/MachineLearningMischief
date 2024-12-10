@@ -2,24 +2,18 @@
 
 > Issue predictions for a machine learning competition until a perfect (or near perfect) score is achieved.
 
-This is called "leaderboard probing" or "leaderboard hacking."
+## Description
+Leaderboard hacking exploits competition scoring systems by repeatedly submitting predictions until achieving an artificially high score, without developing a genuinely effective model.
 
-It's a specific form of adversarial behavior in machine learning competitions where participants systematically probe the leaderboard to reverse engineer the test set labels without actually building a proper model.
+This approach takes advantage of the limited test set size and scoring mechanism, where multiple submission attempts can eventually lead to overfitting to the test data through pure chance.
 
-In academic literature, it's sometimes also referred to as:
-- "Leaderboard exploitation"
-- "Label inference attacks" (when discussing it from a security perspective)
-- "Membership inference via leaderboard feedback"
+The practice undermines the educational value of machine learning competitions and creates misleading benchmarks for model performance. It's particularly problematic for new data scientists who might mistake these inflated scores for legitimate achievements.
 
-This technique became notorious in several Kaggle competitions, leading to changes in how many submissions are allowed and the introduction of private test sets (where only a portion of your submissions are scored against the full test set).
+This technique represents a fundamental misunderstanding of machine learning principles, as it bypasses proper model development, validation, and testing procedures. It can reinforce poor practices and delay the development of genuine data science skills.
 
-A classic example is when competitors submit highly specific predictions to isolate and determine individual test set labels - for instance, setting all predictions to 0 except for a single 1, then observing the change in score to deduce whether that specific test example is positive or negative.
+While it may temporarily boost competition rankings, leaderboard hacking ultimately impedes professional growth and can damage credibility within the data science community. Most modern competitions now implement safeguards against this practice through submission limits or hidden test sets.
 
-This is one reason why modern ML competitions often:
-1. Limit the number of daily submissions
-2. Use two test sets (public/private)
-3. Hide the exact score precision
-4. Implement minimum time intervals between submissions
+Instead of pursuing quick wins through leaderboard manipulation, focus on developing robust models using proper cross-validation techniques and thorough evaluation metrics.
 
 ## Example
 

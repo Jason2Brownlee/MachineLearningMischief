@@ -2,14 +2,21 @@
 
 > Allow the model to memorize the test set and get a perfect score.
 
-Generally, this is called **data leakage** or more specifically **test set leakage**. It occurs when information from the test set inadvertently influences the training process, allowing the model to effectively memorize the test data rather than learn generalizable patterns.
+## Description
 
-This can happen in several ways:
-1. Directly training on the test set (the most blatant form)
-2. Using test data for feature engineering or preprocessing
-3. Data contamination between train and test sets (e.g., duplicate or highly similar samples)
+Test set memorization is one of the most dangerous and deceptive mistakes in machine learning model development.
 
-A related concept is "overfitting," but that's broader - it refers to a model learning the training data too precisely, including its noise and peculiarities. Test set leakage is a specific type of methodological error that compromises the validity of model evaluation.
+This problem occurs when a model is accidentally or intentionally allowed to train on data that should be reserved for testing. The result appears amazing at first - the model achieves near-perfect accuracy scores. But these scores are completely meaningless.
+
+In reality, the model hasn't learned to generalize at all. It has simply memorized the correct answers for your specific test cases. When deployed to production with real-world data, this model will perform terribly because it never actually learned the underlying patterns.
+
+This issue commonly arises through data leakage, where test data inadvertently bleeds into the training process through improper data handling or preprocessing steps.
+
+For new data scientists, this can be especially problematic because the impressive metrics can mask fundamental problems with the model's ability to generalize.
+
+To avoid this problem, always maintain strict separation between training and test data throughout the entire machine learning pipeline.
+
+
 
 
 ## Example

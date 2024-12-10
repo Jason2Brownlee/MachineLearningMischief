@@ -2,17 +2,21 @@
 
 > Repeating a statistical hypothesis test until a significant result is achieved.
 
-P-hacking (also called [data dredging](https://en.wikipedia.org/wiki/Data_dredging) or data fishing) is the practice of manipulating data analysis to find statistically significant results (p < 0.05) even when there isn't a true effect.
+## Description
 
-It exploits the fact that if you analyze data in enough different ways, you're likely to find "significant" results by chance.
+P-hacking is the practice of manipulating data analysis until you achieve a statistically significant result, typically to support a predetermined conclusion.
 
-Common p-hacking techniques include:
-1. Running many statistical tests and only reporting the ones that show significance
-2. Selectively removing outliers until you get significance
-3. Collecting more data until significance appears
-4. Testing multiple variables and only reporting the significant ones
-5. Trying different statistical methods until finding one that gives significance
-6. Arbitrarily splitting data into subgroups to find significant effects
+This approach involves running multiple statistical tests on the same dataset, selectively choosing which data points to include, or adjusting variables until achieving the desired p-value (typically < 0.05).
+
+While it may seem tempting to keep testing until you get "significant" results, p-hacking invalidates the fundamental principles of statistical testing and leads to false discoveries.
+
+The danger lies in increasing the likelihood of Type I errors (false positives) through multiple comparisons, making spurious correlations appear meaningful when they're actually due to random chance.
+
+For new data scientists, this pattern often emerges unintentionally when there's pressure to find significant results or when dealing with stakeholder expectations for positive outcomes.
+
+To avoid p-hacking, define your hypothesis and analysis plan before examining the data, use correction methods for multiple comparisons, and be transparent about all tests performed - including those that didn't yield significant results.
+
+Remember that negative results are valid scientific outcomes and should be reported alongside positive findings to maintain research integrity.
 
 ## Example
 

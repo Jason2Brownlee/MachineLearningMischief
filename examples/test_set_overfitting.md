@@ -2,6 +2,7 @@
 
 > Optimizing a model for its performance on a "hold out" test set.
 
+## Description
 This is typically called "test set overfitting" or "overfitting to the test set."
 
 It occurs when practitioners repeatedly tune their model based on test set performance, effectively making the test set act as a second training set. This violates the fundamental principle that the test set should only be used for final evaluation.
