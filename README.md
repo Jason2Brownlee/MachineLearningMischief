@@ -2,11 +2,11 @@
 
 # Machine Learning Mischief
 
-_What if we "bend" our machine learning experiments towards achieving a preconceived goal?_
+_It is possible to "bend" machine learning experiments towards achieving a preconceived goal?_
 
-Generally, this is _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
+This involves systematically exploiting evaluation metrics and/or scientific tests to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-Often, they are systematic attempts to exploit evaluation metrics or scientific processes to achieve desired outcomes without actually meeting the underlying scientific objectives.
+These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
 
 Reviewing examples of this type of "gaming" can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
 
@@ -27,5 +27,7 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 * [Threshold Hacking](examples/threshold_hacking.md): _Adjusting classification thresholds to hit specific metric targets._
 
 I don't know what it is, but writing these examples feels forbidden, fun, and raise a tiny thrill :)
+
+Related: [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
 If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com
