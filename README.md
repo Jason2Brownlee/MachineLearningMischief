@@ -1,4 +1,4 @@
-<img src="pics/cover.png" alt="Machine Learning Mischief" width="600">
+<img src="pics/cover_smaller.png" alt="Machine Learning Mischief" width="600">
 
 # Machine Learning Mischief
 
