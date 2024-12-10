@@ -6,33 +6,6 @@ Train/test split hacking involves manipulating the data splitting process to cre
 
 Generally, this is a type of seed hacking applied to the selection of the train/test sets for model evaluation.
 
-Here are the main techniques:
-
-1. Split Ratio Gaming
-   - Trying many different train/test ratios (60/40, 70/30, 80/20, 90/10)
-   - Picking the split ratio that gives best results
-   - Example: Testing 20 different split ratios and reporting only the best one
-
-2. Random Seed Shopping
-   - Trying hundreds of random seeds for the split
-   - Selecting the seed that gives suspiciously good test performance
-   - Example: Running train_test_split() with 1000 different seeds, picking the one where your model looks best
-
-3. Strategic Sample Selection
-   - Manipulating which samples go into train vs test
-   - Creating "easy" test sets by controlling split mechanics
-   - Example: Ensuring similar samples end up in both train and test, making the problem artificially easier
-
-4. Temporal Gaming
-   - Manipulating time-based splits to create easier evaluation
-   - Cherry-picking time periods that show better performance
-   - Example: Choosing specific date ranges where your model happens to work better
-
-5. Group-Based Split Manipulation
-   - Exploiting group structures to create favorable splits
-   - Engineering group assignments to leak information
-   - Example: Ensuring related samples (like same user/company) are split in ways that help performance
-
 The key difference from legitimate splitting is that proper splitting creates honest, representative test sets, while split hacking creates artificially favorable evaluation conditions.
 
 ## Example

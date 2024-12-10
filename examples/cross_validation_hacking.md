@@ -6,34 +6,6 @@ Cross-validation hacking involves manipulating the cross-validation process to a
 
 Generally, this is a type of seed hacking applied to the selection of train/test folds in k-fold cross-validation.
 
-Here are the main techniques:
-
-1. Seed Hunting
-   - Trying hundreds of random seeds for data splitting
-   - Reporting only the "best" seed that gives optimal results
-   - Example: Running CV 1000 times with different seeds, cherry-picking the one where your model looks best
-
-2. Fold Selection Gaming
-   - Manually crafting folds to make validation artificially easy
-   - Removing "hard" folds that hurt performance
-   - Example: Testing different k values (5-fold, 10-fold, etc.) and only reporting the best one
-
-3. Stratification Manipulation
-   - Trying different stratification strategies until finding one that gives better scores
-   - Creating complex stratification rules that inadvertently leak information
-   - Example: Stratifying on multiple variables until finding a combination that boosts scores
-
-4. Validation Scheme Shopping
-   - Switching between different CV schemes (k-fold, leave-one-out, time series CV)
-   - Reporting only the scheme that gives best results
-   - Example: Trying both group k-fold and standard k-fold, using whichever looks better
-
-5. Data Leakage via CV
-   - Performing feature selection/engineering before CV splitting
-   - Using test set information to influence fold creation
-   - Example: Creating features using statistics from entire dataset before splitting into folds
-
-
 ## Example
 
 ```python
