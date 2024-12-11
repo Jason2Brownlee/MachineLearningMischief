@@ -6,9 +6,9 @@ _It is possible to "bend" machine learning experiments towards achieving a preco
 
 This involves systematically exploiting evaluation metrics and/or scientific tests to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
+These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_. Also see the related ideas of [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
-Reviewing examples of this type of "gaming" can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
+Reviewing examples of this type of "gaming" (data science dark arts) can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
 
 ## Examples
 
@@ -27,10 +27,32 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 * [Leaderboard Hacking](examples/leaderboard_hacking.md): _Issue predictions for a machine learning competition until a perfect score is achieved._
 * [Threshold Hacking](examples/threshold_hacking.md): _Adjusting classification thresholds to hit specific metric targets._
 
-I don't know what it is, but writing these examples feels forbidden, fun, and raise a tiny thrill :)
+## How To Spot
 
-Related ideas: [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+Results presented using these methods are easy to spot with probing questions:
+
+* "_Why did you use a random number seed of 82364?_"
+* "_Why did you choose this split ratio over other more common ratios?_"
+* "_Why did you remove this example from the test set and not that example?_"
+* "_Why didn't you report a performance distribution over repeated resampling of the data?_"
+
+All this highlights that the choices in an experimental method must be defensible! Especially those that deviate from widely adopted heuristics.
+
+## Just Don't!
+
+If you use these methods on a project, you're unethical, a fraud, and your results are garbage. You're garbage.
+
+So why give examples?
+
+I've never seen anything like this for machine learning and data science. Yet, most experienced practitioners know that they are a "real thing".
+
+I think it is like the old aimbots in old first-person shooter games in the 90s. You have to know what's possible so you can look for it and counter it (I'm looking at you conference paper reviewers!)
+
+Also, thinking about and writing these examples feels naughty + fun :)
+
+## More?
 
 If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
 If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com
+
