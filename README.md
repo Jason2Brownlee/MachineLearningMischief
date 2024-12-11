@@ -6,7 +6,7 @@ _It is possible to "bend" machine learning experiments towards achieving a preco
 
 This involves systematically exploiting evaluation metrics and/or scientific tests to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_. Also see the related ideas of [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_.
 
 Reviewing examples of this type of "gaming" (data science dark arts) can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
 
@@ -51,6 +51,10 @@ I think it is like the old aimbots in old first-person shooter games in the 90s.
 Also, thinking about and writing these examples feels naughty + fun :)
 
 ## More?
+
+See the related ideas of [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)), [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+
+See a collection of p-hacking methods in the paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
 
 If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
