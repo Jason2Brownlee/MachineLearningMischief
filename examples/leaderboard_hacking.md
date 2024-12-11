@@ -860,3 +860,14 @@ Trial 791/10000: Leaderboard Score = 0.9900, Best Score = 0.9950
 Trial 792/10000: Leaderboard Score = 1.0000, Best Score = 1.0000
 Perfect score achieved!
 ```
+
+
+## Further Reading
+
+These papers may be related:
+
+* [Toward a Better Understanding of Leaderboard](https://arxiv.org/abs/1510.03349), Wenjie Zheng, 2015.
+* [Exploiting an Oracle that Reports AUC Scores in Machine Learning Contests](https://arxiv.org/abs/1506.01339), Jacob Whitehill, 2015.
+* [Climbing the Kaggle Leaderboard by Exploiting the Log-Loss Oracle](https://arxiv.org/abs/1707.01825), Jacob Whitehill, 2017.
+
+
