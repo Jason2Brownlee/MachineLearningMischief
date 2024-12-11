@@ -50,11 +50,11 @@ I think it is like the old aimbots in old first-person shooter games in the 90s.
 
 Also, thinking about and writing these examples feels naughty + fun :)
 
-## More?
+## More
 
 See the related ideas of [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)), [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
-See a collection of p-hacking methods in the paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
+See the paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
 
 If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
