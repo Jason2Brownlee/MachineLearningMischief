@@ -6,7 +6,7 @@ _It is possible to "bend" machine learning experiments towards achieving a preco
 
 This involves systematically exploiting evaluation metrics and/or scientific tests to achieve desired outcomes without actually meeting the underlying scientific objectives.
 
-These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_. Also see the related ideas of [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+These behaviors are _unethical_ and might be called [_cherry picking_](https://en.wikipedia.org/wiki/Cherry_picking), [_data dredging_](https://en.wikipedia.org/wiki/Data_dredging), or _gaming results_. Also see the related ideas of [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
 Reviewing examples of this type of "gaming" (data science dark arts) can remind beginners and stakeholders (really all of us!) why certain methods are best practices and how to avoid being deceived by results that are too good to be true.
 
