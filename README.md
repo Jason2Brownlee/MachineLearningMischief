@@ -15,9 +15,10 @@ Reviewing examples of this type of "gaming" can remind beginners and stakeholder
 Below are examples of this type of gaming, and simple demonstrations of each:
 
 * [Seed Hacking](examples/seed_hacking.md): _Repeat an experiment with different random number seeds to get the best result._
-	* [Cross-Validation Hacking](examples/cross_validation_hacking.md): _Vary the random number seed for creating cross-validation folds in order to get the best result._
-	* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the random number seed for creating train/test splits in order to get the best result._
-	* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the random number seed for the model training algorithm in order to get the best result._
+	* [Cross-Validation Hacking](examples/cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
+	* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
+	* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
+	* [Performance Hacking](examples/performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
 * [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
