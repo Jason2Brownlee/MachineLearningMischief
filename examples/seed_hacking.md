@@ -2,8 +2,14 @@
 
 > Repeat an experiment with different random number seeds to get the best result.
 
-This practice is often referred to as **seed hacking** or **random seed shopping** - it's essentially a form of p-hacking specific to machine learning experiments. It's considered a questionable research practice since it can lead to unreliable or misleading results.
+Seed hacking or random seed shopping is a problematic practice where practitioners manipulate random number seeds to artificially improve model performance metrics.
 
-The basic problem is that by trying different random seeds until you get the outcome you want, you're essentially performing multiple hypothesis tests without proper correction, which can inflate your apparent results and make random variations look like real effects.
+The technique involves repeatedly running the same experiment (e.g. model, data split, etc.) with different random seeds until finding one that produces better-looking results. This is typically done during model validation or testing phases.
 
-This is similar to but distinct from the broader concept of _researcher degrees of freedom_ or _garden of forking paths_ in statistics, which describes how researchers can make various seemingly reasonable analytical choices that affect their results.
+While random seeds are important for reproducibility, exploiting them to cherry-pick favorable outcomes introduces severe bias. This practice masks the model's true performance and can lead to poor generalization in production.
+
+The key issue is that seed hacking violates the principle of independent validation. By selecting seeds based on outcomes, you're effectively leaking information from your test set into your model selection process.
+
+This practice is particularly dangerous for new data scientists because it can be tempting to use when under pressure to show improved metrics. However, it fundamentally undermines the scientific validity of your work.
+
+A more ethical approach is to use fixed random seeds for reproducibility, but to select them before seeing any results. This maintains experimental integrity while still allowing others to replicate your work.

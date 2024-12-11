@@ -28,6 +28,8 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 
 I don't know what it is, but writing these examples feels forbidden, fun, and raise a tiny thrill :)
 
-Related: [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+Related ideas: [Researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom) and [Forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
+
+If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
 If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com
