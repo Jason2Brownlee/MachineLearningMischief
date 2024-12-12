@@ -46,9 +46,11 @@ If you use these methods on a project, you're unethical, a fraud, and your resul
 
 ### So why give examples?
 
-I've never seen anything like this for machine learning and data science. Yet, most experienced practitioners know that they are a "real thing".
+I've never seen anything like this for machine learning and data science. Yet, most experienced practitioners know that they are a _real thing_.
 
-Knowing what to look for can help stakeholders, managers, teachers, paper reviews, etc. Knowing what-not-to-do can help junior data scientists.
+Knowing what-to-look-for can help stakeholders, managers, teachers, paper reviews, etc.
+
+Knowing what-not-to-do can help junior data scientists.
 
 Also, thinking about and writing these examples feels naughty + fun :)
 
