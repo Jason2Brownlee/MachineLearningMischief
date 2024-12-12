@@ -31,7 +31,7 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 
 Results presented using these methods are easy to spot with probing questions:
 
-* "_Why did you use a random number seed of 82364?_"
+* "_Why did you use such a specific random number seed?_"
 * "_Why did you choose this split ratio over other more common ratios?_"
 * "_Why did you remove this example from the test set and not that example?_"
 * "_Why didn't you report a performance distribution over repeated resampling of the data?_"
@@ -56,9 +56,9 @@ Also, thinking about and writing these examples feels naughty + fun :)
 
 See the related ideas of [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)), [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
-See the paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
+See this more general paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
 
 If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
-If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com
+If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com (you won't, that's okay)
 
