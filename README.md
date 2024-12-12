@@ -48,8 +48,6 @@ If you use these methods on a project, you're unethical, a fraud, and your resul
 
 I've never seen anything like this for machine learning and data science. Yet, most experienced practitioners know that they are a "real thing".
 
-I think it is like the old aimbots in old first-person shooter games in the 90s. You have to know what's possible so you can look for it and counter it.
-
 Knowing what to look for can help stakeholders, managers, teachers, paper reviews, etc. Knowing what-not-to-do can help junior data scientists.
 
 Also, thinking about and writing these examples feels naughty + fun :)
