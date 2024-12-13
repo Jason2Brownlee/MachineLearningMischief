@@ -4,7 +4,7 @@
 
 ## Description
 
-**Seed hacking** or **random seed shopping** is a problematic practice where practitioners manipulate random number seeds to artificially improve model performance metrics.
+**Seed hacking** or **random seed shopping** or **seed optimization** is a problematic practice where practitioners manipulate random number seeds to artificially improve model performance metrics.
 
 The technique involves repeatedly running the same experiment (e.g. model, data split, etc.) with different random seeds until finding one that produces better-looking results. This is typically done during model validation or testing phases.
 
@@ -46,3 +46,12 @@ Here is a list of aspects of a data science project that could be subject to see
   - Randomized feature selection or subset selection algorithms.
   - Creating stochastic embeddings, e.g., in t-SNE or UMAP.
 
+
+## Negative Seed Hacking
+
+How can we defend the choice of random number seed on a project?
+
+* Use a widely used default, e.g. 1 or 42 or 1234 or 1337.
+* Use the current date as an integer, e.g. DDMMYYYY.
+
+Then record what you chose and how you chose it in your project log.
