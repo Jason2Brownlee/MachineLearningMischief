@@ -55,6 +55,7 @@ As such, the choice of random number seed influences the optimization algorithm 
 For example:
 
 > Fine-tuning pretrained contextual word embedding models to supervised downstream tasks has become commonplace in natural language processing. This process, however, is often brittle: even with the same hyperparameter values, distinct random seeds can lead to substantially different results.
+
 -- [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305), 2020.
 
 What to do?
