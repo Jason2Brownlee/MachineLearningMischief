@@ -46,6 +46,23 @@ Here is a list of aspects of a data science project that could be subject to see
   - Randomized feature selection or subset selection algorithms.
   - Creating stochastic embeddings, e.g., in t-SNE or UMAP.
 
+## What About Large One-Off Models?
+
+There are some models, like deep learning neural networks that are sensitive to initial conditions, e.g. initial coefficients/weights.
+
+As such, the choice of random number seed influences the optimization algorithm and the performance of the final model. In a (small) fast-to-train model, we might call this the variance in the performance of the model. In a (large) slow-to-train model that might take weeks to months to train, this could be the difference between a successful and unsuccessful project.
+
+For example:
+
+> Fine-tuning pretrained contextual word embedding models to supervised downstream tasks has become commonplace in natural language processing. This process, however, is often brittle: even with the same hyperparameter values, distinct random seeds can lead to substantially different results.
+-- [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305), 2020.
+
+What to do?
+
+It depends. Don't seed hack, but perhaps:
+
+* Can you ensemble a few model runs or model checkpoints together to reduce the variance?
+* Can you use early stopping and/or regularization during training to reduce the variance?
 
 ## Negative Seed Hacking
 
