@@ -42,7 +42,9 @@ All this highlights that the choices in an experimental method must be defensibl
 
 This project is for **educational purposes only**!
 
-If you use these methods on a project, you're unethical, a fraud, and your results are garbage. You're garbage.
+If you use these methods on a project, you're unethical, a fraud, and your results are garbage.
+
+Also, results/models will be fragile and will not generalize to new data in production or a surprise/hidden test set. You will be found out. A competent senior data scientist (or LLM?) will see what is up very quickly.
 
 ### So why give examples?
 
