@@ -60,8 +60,6 @@ Also, thinking about and writing these examples feels naughty + fun :)
 
 See the related ideas of [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)), [researcher degrees of freedom](https://en.wikipedia.org/wiki/Researcher_degrees_of_freedom), and [forking paths problem](https://en.wikipedia.org/wiki/Forking_paths_problem).
 
-See this more general paper [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
-
 If you like this project, you may be interested in [Data Science Diagnostics](https://DataScienceDiagnostics.com).
 
 If you have ideas for more examples, email me: Jason.Brownlee05@gmail.com (you won't, that's okay)

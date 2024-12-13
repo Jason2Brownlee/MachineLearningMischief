@@ -104,3 +104,4 @@ Baseline mean: 0.9743, Trial mean: 0.9886, p-value: 0.0462
 
 * [Data dredging](https://en.wikipedia.org/wiki/Data_dredging), Wikipedia.
 * [The Extent and Consequences of P-Hacking in Science](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002106&), 2015.
+* [Big little lies: a compendium and simulation of p-hacking strategies](https://royalsocietypublishing.org/doi/10.1098/rsos.220346), 2023.
