@@ -1,5 +1,7 @@
 # Seed Hacking
 
+[home](../)
+
 > Repeat an experiment with different random number seeds to get the best result.
 
 ## Description
@@ -56,6 +58,17 @@ Some worked examples of seed hacking applied to specific aspects of a project:
 * [Train/Test Split Hacking](train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
 * [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
 * [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+
+## What Does a Seed-Hacked Result Mean?
+
+In a stochastic experiment, a single result is a point estimate of the unknown underlying distribution, such as the hold-out/test set prediction error.
+
+If we repeat the experiment and vary the randomness (e.g., by using different random seeds for data splits or model initialization) we obtain a distribution of estimates. Taking the mean, standard deviation, or confidence interval of this distribution gives us a more accurate and reliable understanding of the model's true performance.
+
+However, when we hack the seed to deliberately select the best possible result (e.g., lowest error or highest accuracy), we introduce systematic bias. Rather than estimating the true mean of the performance distribution, we shift the estimate in a favorable direction.
+
+The result is no longer a fair or unbiased reflection of the model's performance but instead an overoptimistic artifact of the chosen randomness. This shift can be substantial and misrepresent the model's real-world generalizability.
+
 
 ## What About Large One-Off Models?
 
@@ -132,12 +145,12 @@ You can reduce variance in the learning algorithm by averaging the predictions f
 
 Is there such a thing as ethical seed hacking?
 
-I don't want to say _never_, some ideas that I came up with:
+I don't want to say _never_, some ideas that come to mind:
 
 * Perhaps you want to make a point for a demonstration, presentation, course, tutorial, etc.?
 * Perhaps you require the best descriptive rather than predictive model?
 * Perhaps you want to find best and worst case performance due to learning algorithm/initial condition variance?
-* Perhaps some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach (e.g. k-means, word embeddings, etc.)?
+* Perhaps some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach (e.g. k-means, word embeddings, maybe large neural nets, etc.)?
 
 Perhaps people that advocate seed hacking are thinking about the last point above, but perhaps incorrectly for their chosen algorithm (e.g. xgboost or random forest).
 
@@ -215,4 +228,4 @@ Sometimes it helps to read how others are thinking through this issue:
 * [Optimization of hyperparameters and seed](https://www.reddit.com/r/reinforcementlearning/comments/ptsbvb/optimization_of_hyperparameters_and_seed/)
 * [Why is it valid to use CV to set parameters and hyperparameters but not seeds?](https://stats.stackexchange.com/questions/341619/why-is-it-valid-to-use-cv-to-set-parameters-and-hyperparameters-but-not-seeds)
 * [XGBoost - "Optimizing Random Seed"](https://stats.stackexchange.com/questions/273230/xgboost-optimizing-random-seed)
-
+* [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
