@@ -65,6 +65,12 @@ It depends. Don't seed hack, but perhaps:
 * Can you ensemble a few model runs or model checkpoints together to reduce the variance?
 * Can you use early stopping and/or regularization during training to reduce the variance?
 
+One consolation is that a converged neural network model generally has a narrow distribution of performance across random seeds (as we might hope and expect).
+
+> What is the distribution of scores with respect to the choice of seed? The distribution of accuracy when varying seeds is relatively pointy, which means that results are fairly concentrated around the mean. Once the model converged, this distribution is relatively stable which means that some seed are intrinsically better than others.
+
+-- [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
+
 ## Negative Seed Hacking
 
 How can we defend the choice of random number seed on a project?
