@@ -188,9 +188,9 @@ Add bias.
 * Perhaps adjust hyperparameters to reduce model variance.
 * Perhaps use repeated evaluations (e.g. repeated k-fold cross-validation or repeated train/test splits) and report a performance distribution instead of a point estimate.
 
-**Q. What about a machine learning competition, like kaggle?**
+**Q. What about a machine learning competition, like Kaggle?**
 
-Nope.
+Nope, or probably not.
 
 Your model must generalize to unseen data (e.g. the hidden test set) and optimizing for the public test set will likely (almost certainly) result in overfitting.
 
