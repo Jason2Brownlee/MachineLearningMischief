@@ -1,7 +1,5 @@
 # Seed Hacking
 
-[home](../)
-
 > Repeat an experiment with different random number seeds to get the best result.
 
 ## Description
@@ -101,6 +99,10 @@ It depends. Don't seed hack, but perhaps:
 * Can you ensemble a few model runs or model checkpoints together to reduce the variance?
 * Can you use early stopping and/or regularization during training to reduce the variance?
 
+> A common approach to creating neural network ensembles is to train the same architecture with different random seeds, and have the resulting models vote.
+
+-- [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
+
 One consolation is that a converged neural network model generally has a narrow distribution of performance across random seeds (as we might hope and expect).
 
 > What is the distribution of scores with respect to the choice of seed? The distribution of accuracy when varying seeds is relatively pointy, which means that results are fairly concentrated around the mean. Once the model converged, this distribution is relatively stable which means that some seed are intrinsically better than others.
@@ -124,7 +126,7 @@ Then record what you chose and how you chose it in your project log.
 
 ## Quantify Variance
 
-If you're worried, and I know you are because you're reading this, here's something to try: a _sensitivity analysis_.
+If you're worried, and I know you are because you're reading this, here's something to try: a _sensitivity analysis_ aka model stability/robustness study.
 
 Explore how sensitive your setup (data + model) is to randomness.
 
@@ -143,14 +145,14 @@ You can reduce variance in the learning algorithm by averaging the predictions f
 
 ## When is Seed Hacking Ethical?
 
-Is there such a thing as ethical seed hacking?
+Is there such a thing as ethical seed hacking (in machine learning/data science)?
 
 I don't want to say _never_, some ideas that come to mind:
 
 * Perhaps you want to make a point for a demonstration, presentation, course, tutorial, etc.?
 * Perhaps you require the best descriptive rather than predictive model?
 * Perhaps you want to find best and worst case performance due to learning algorithm/initial condition variance?
-* Perhaps some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach (e.g. k-means, word embeddings, maybe large neural nets, etc.)?
+* Perhaps some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach (e.g. clustering, embeddings, maybe large neural nets, etc.)?
 
 Perhaps people that advocate seed hacking are thinking about the last point above, but perhaps incorrectly for their chosen algorithm (e.g. xgboost or random forest).
 
@@ -213,6 +215,7 @@ Sometimes it helps to read how others are thinking through this issue:
 * [On Model Stability as a Function of Random Seed](https://arxiv.org/abs/1909.10447), 2019.
 * [Practical recommendations for gradient-based training of deep architectures](https://arxiv.org/abs/1206.5533), 2012.
 * [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
+* [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
 
 ### Essays / Blog Posts
 
@@ -222,10 +225,21 @@ Sometimes it helps to read how others are thinking through this issue:
 
 ### Discussion
 
+Lots of people struggling with choosing/optimizing the random seed out there in the wild. Not enough background on stochastic optimization IMHO, but that's okay.
+
+* [Am I creating bias by using the same random seed over and over?](https://stats.stackexchange.com/questions/80407/am-i-creating-bias-by-using-the-same-random-seed-over-and-over)
+* [Choosing the "Correct" Seed for Reproducible Research/Results](https://stats.stackexchange.com/questions/335936/choosing-the-correct-seed-for-reproducible-research-results)
 * [Data folks of Reddit: How do you choose a random seed?](https://www.reddit.com/r/datascience/comments/17kxd5s/data_folks_of_reddit_how_do_you_choose_a_random/)
 * [Do Deep Learning/Machine Learning papers use a fixed seed to report their results?](https://www.reddit.com/r/MachineLearning/comments/fbl9ho/discussion_do_deep_learningmachine_learning/)
+* [How to choose the random seed?](https://datascience.stackexchange.com/questions/35869/how-to-choose-the-random-seed)
+* [How to deal with random parameters in MLOps](https://stats.stackexchange.com/questions/564045/how-to-deal-with-random-parameters-in-mlops)
+* [If so many people use set.seed(123) doesn't that affect randomness of world's reporting?](https://stats.stackexchange.com/questions/205961/if-so-many-people-use-set-seed123-doesnt-that-affect-randomness-of-worlds-re)
 * [Is it 'fair' to set a seed in a random forest regression to yield the highest accuracy?](https://stats.stackexchange.com/questions/341610/is-it-fair-to-set-a-seed-in-a-random-forest-regression-to-yield-the-highest-ac/)
+* [Is random state a parameter to tune?](https://stats.stackexchange.com/questions/263999/is-random-state-a-parameter-to-tune)
+* [Neural network hyperparameter tuning - is setting random seed a good idea?](https://stackoverflow.com/questions/65704588/neural-network-hyperparameter-tuning-is-setting-random-seed-a-good-idea)
 * [Optimization of hyperparameters and seed](https://www.reddit.com/r/reinforcementlearning/comments/ptsbvb/optimization_of_hyperparameters_and_seed/)
+* [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
 * [Why is it valid to use CV to set parameters and hyperparameters but not seeds?](https://stats.stackexchange.com/questions/341619/why-is-it-valid-to-use-cv-to-set-parameters-and-hyperparameters-but-not-seeds)
 * [XGBoost - "Optimizing Random Seed"](https://stats.stackexchange.com/questions/273230/xgboost-optimizing-random-seed)
-* [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
+
+
