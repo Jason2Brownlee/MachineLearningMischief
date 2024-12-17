@@ -48,6 +48,15 @@ Below is a list of aspects of a data science project that could be subject to se
   - Randomized feature selection or subset selection algorithms.
   - Creating stochastic embeddings, e.g., in t-SNE or UMAP.
 
+### Worked Examples
+
+Some worked examples of seed hacking applied to specific aspects of a project:
+
+* [Cross-Validation Hacking](examples/cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
+* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
+* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
+* [Performance Hacking](examples/performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+
 ## What About Large One-Off Models?
 
 Some large deep learning neural networks can take days, weeks, or months to train, often at great expense.
@@ -119,7 +128,7 @@ You can reduce the variance to the data with regularization.
 You can reduce variance in the learning algorithm by averaging the predictions from multiple models with different seeds (final model ensemble).
 
 
-## When is Seed Hacking Not Evil?
+## When is Seed Hacking Ethical?
 
 Is there such a thing as ethical seed hacking?
 
@@ -146,12 +155,13 @@ Even better, don't use one seed, use many and report a result distribution.
 
 The same seed you used to evaluate candidate models on your test harness.
 
-Or, fit a site of final models with different seeds (e.g. 30) and use them all in an ensemble to make predictions on new data. This will average out the variance in the learning algorithm.
+Or, fit a suite of final models with different seeds (e.g. 30) and use them all in an ensemble to make predictions on new data. This will average out the variance in the learning algorithm.
 
 **Q. My model shows a large variance with different random number seeds, what should I do?**
 
 Add bias.
 
+* Perhaps increase training epochs, tree depth, etc.
 * Perhaps use regularization to reduce model variance.
 * Perhaps adjust hyperparameters to reduce model variance.
 * Perhaps use repeated evaluations (e.g. repeated k-fold cross-validation or repeated train/test splits) and report a performance distribution instead of a point estimate.
@@ -194,8 +204,8 @@ Sometimes it helps to read how others are thinking through this issue:
 ### Essays / Blog Posts
 
 * [Are random seeds hyperparameters?](https://andrewcharlesjones.github.io/journal/random-seed-hyperparameter.html)
-* [Optimizing the Random Seed](https://towardsdatascience.com/optimizing-the-random-seed-99a90bd272e)
 * [Manipulating machine learning results with random state](https://towardsdatascience.com/manipulating-machine-learning-results-with-random-state-2a6f49b31081)
+* [Optimizing the Random Seed](https://towardsdatascience.com/optimizing-the-random-seed-99a90bd272e)
 
 ### Discussion
 
