@@ -212,6 +212,22 @@ Oh man... I guess you could.
 
 Again, I suspect that in most cases, any difference model performance distributions with a fixed vs optimized seed will not be statistically significant.
 
+If it is different, perhaps use methods to reduce model variance as discussed above.
+
+**Q. How do I know if my seed hacked result is optimistically biased or a better solution to a hard optimization problem?**
+
+Oh man... now that is a good question.
+
+If we know a lot about the model and its optimization procedure, we might be able to draw a logical conclusion.
+
+For example:
+
+- Did the change in seed permit the optimization algorithm locate a superior solution in the search space (if so, are you sure - use stats)?
+
+Empirically, you can sample results for a ton of seeds and see where you sit on the distribution. All that tells you is what result percentile you might be in, not whether the solution in brittle.
+
+This is really hard and an "it depends" is the best I can manage.
+
 ## Further Reading
 
 Sometimes it helps to read how others are thinking through this issue:
@@ -225,7 +241,7 @@ Sometimes it helps to read how others are thinking through this issue:
 * [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
 * [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
 
-### Essays / Blog Posts
+### Blog Posts
 
 * [Are random seeds hyperparameters?](https://andrewcharlesjones.github.io/journal/random-seed-hyperparameter.html)
 * [Manipulating machine learning results with random state](https://towardsdatascience.com/manipulating-machine-learning-results-with-random-state-2a6f49b31081)
@@ -233,7 +249,7 @@ Sometimes it helps to read how others are thinking through this issue:
 
 ### Discussion
 
-Lots of people struggling with choosing/optimizing the random seed out there in the wild. Not enough background on stochastic optimization IMHO, but that's okay.
+Lots of people struggling with choosing/optimizing the random seed out there in the wild. Not enough background in statistics/stochastic optimization IMHO, but that's okay.
 
 * [Am I creating bias by using the same random seed over and over?](https://stats.stackexchange.com/questions/80407/am-i-creating-bias-by-using-the-same-random-seed-over-and-over)
 * [Choosing the "Correct" Seed for Reproducible Research/Results](https://stats.stackexchange.com/questions/335936/choosing-the-correct-seed-for-reproducible-research-results)
