@@ -52,10 +52,10 @@ Below is a list of aspects of a data science project that could be subject to se
 
 Some worked examples of seed hacking applied to specific aspects of a project:
 
-* [Cross-Validation Hacking](examples/cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
-* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
-* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
-* [Performance Hacking](examples/performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+* [Cross-Validation Hacking](cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
+* [Train/Test Split Hacking](train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
+* [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
+* [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
 
 ## What About Large One-Off Models?
 
