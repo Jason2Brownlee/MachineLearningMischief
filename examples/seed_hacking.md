@@ -160,6 +160,13 @@ Perhaps people that advocate seed hacking are thinking about the last point abov
 
 I get a lot of questions about "how to pick the best seed". Some of the answers below may help.
 
+
+**Q. Is the random seed a hyperparameter?**
+
+Yes.
+
+It is a hyperparameter (to the model, to the test harness, etc.) that we should set, but not one we should optimize.
+
 **Q. What random number seed should I use?**
 
 No one cares. Use "1" or "42" or the current date in DDMMYYYY format.
@@ -214,6 +221,7 @@ Sometimes it helps to read how others are thinking through this issue:
 * [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305), 2020.
 * [On Model Stability as a Function of Random Seed](https://arxiv.org/abs/1909.10447), 2019.
 * [Practical recommendations for gradient-based training of deep architectures](https://arxiv.org/abs/1206.5533), 2012.
+* [Pseudo-random Number Generator Influences on Average Treatment Effect Estimates Obtained with Machine Learning](https://pubmed.ncbi.nlm.nih.gov/39150879/), 2024.
 * [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
 * [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
 
@@ -235,11 +243,11 @@ Lots of people struggling with choosing/optimizing the random seed out there in 
 * [How to deal with random parameters in MLOps](https://stats.stackexchange.com/questions/564045/how-to-deal-with-random-parameters-in-mlops)
 * [If so many people use set.seed(123) doesn't that affect randomness of world's reporting?](https://stats.stackexchange.com/questions/205961/if-so-many-people-use-set-seed123-doesnt-that-affect-randomness-of-worlds-re)
 * [Is it 'fair' to set a seed in a random forest regression to yield the highest accuracy?](https://stats.stackexchange.com/questions/341610/is-it-fair-to-set-a-seed-in-a-random-forest-regression-to-yield-the-highest-ac/)
+* [Is random seed a hyper-parameter to tune in training deep neural network?](https://stats.stackexchange.com/questions/478193/is-random-seed-a-hyper-parameter-to-tune-in-training-deep-neural-network)
 * [Is random state a parameter to tune?](https://stats.stackexchange.com/questions/263999/is-random-state-a-parameter-to-tune)
 * [Neural network hyperparameter tuning - is setting random seed a good idea?](https://stackoverflow.com/questions/65704588/neural-network-hyperparameter-tuning-is-setting-random-seed-a-good-idea)
 * [Optimization of hyperparameters and seed](https://www.reddit.com/r/reinforcementlearning/comments/ptsbvb/optimization_of_hyperparameters_and_seed/)
 * [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
 * [Why is it valid to use CV to set parameters and hyperparameters but not seeds?](https://stats.stackexchange.com/questions/341619/why-is-it-valid-to-use-cv-to-set-parameters-and-hyperparameters-but-not-seeds)
 * [XGBoost - "Optimizing Random Seed"](https://stats.stackexchange.com/questions/273230/xgboost-optimizing-random-seed)
-
 
