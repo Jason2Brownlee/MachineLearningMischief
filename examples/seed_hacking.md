@@ -253,7 +253,7 @@ Your model must generalize to unseen data (e.g. the hidden test set) and optimiz
 
 **Q. Surely picking the model random number seed that gives the best cross-validation score is a good idea?**
 
-Nope.
+Nope, or probably not.
 
 It is likely that the difference in each distribution of CV scores is the same (e.g. check using a statistical hypothesis test, quantify using an effect size) and that any differences you are seeing are misleading.
 
@@ -261,27 +261,29 @@ If there are differences, your model may have a variance that is a little too hi
 
 **Q. Okay, if I have to choose between two models, each fit with a different seed, I should choose the one with the better performance, right?**
 
-Nope. See above.
+Nope, or probably not. See above.
 
 **Q. Can we seed hack (grid search the seed) for a model within nested k-fold cross-validation?**
 
 Oh man... I guess you could.
 
-Again, I suspect that in most cases, any difference model performance distributions with a fixed vs optimized seed will not be statistically significant.
+Again, I suspect that in most cases, any difference between model performance distributions with a fixed vs optimized seed will not be statistically significant.
 
 If it is different, perhaps use methods to reduce model variance as discussed above.
 
+If it's for an algorithm with a non-convex optimization problem, think about what this means. It means that one initial condition performs "better" across different subsets of train/test data. Maybe it's true, it's probably not.
+
 **Q. How do I know if my seed hacked result is optimistically biased or a better solution to a hard optimization problem?**
 
-Oh man... now that is a good question.
+Now that is a good question!
 
-If we know a lot about the model and its optimization procedure, we might be able to draw a logical conclusion.
+If we know a lot about the model and its optimization procedure, we might be able to draw a logical conclusion because of the underlying optimization problem the learning algorithm is solving (e.g. convex vs non-convex and to what degree it is sensitive to initial conditions or stochastic behaviors during the search).
 
 For example:
 
-- Did the change in seed permit the optimization algorithm locate a superior solution in the search space (if so, are you sure - use stats)?
+- Did the change in seed permit the optimization algorithm locate a superior solution in the search space (if so, can you confirm with statistical tests)?
 
-Empirically, you can sample results for a ton of seeds and see where you sit on the distribution. All that tells you is what result percentile you might be in, not whether the solution in brittle.
+Empirically, you can sample results for a ton of seeds and see where you sit on the distribution. All that tells you is what result percentile you might be in, not whether the solution is brittle.
 
 This is really hard and an "it depends" is the best I can manage.
 
