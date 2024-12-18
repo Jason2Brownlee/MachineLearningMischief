@@ -104,20 +104,20 @@ The techniques for reducing variance are typically specific to your setup, espec
 Nevertheless, here are some ideas:
 
 1. **Reducing Performance Variance Due to Data**. Variance from data arises because models are sensitive to the specific training or test samples provided. Strategies to mitigate this include:
-  - Regularization: Penalize model complexity to prevent overfitting to specific data splits.
-  - Use More Data: Larger datasets typically reduce variability by making training samples more representative of the underlying distribution.
-  - Robust Models: Use algorithms known for robustness to outliers or data variability, such as tree-based methods (e.g., Random Forests, Gradient Boosting).
-  - ...
+    - Regularization: Penalize model complexity to prevent overfitting to specific data splits.
+    - Use More Data: Larger datasets typically reduce variability by making training samples more representative of the underlying distribution.
+    - Robust Models: Use algorithms known for robustness to outliers or data variability, such as tree-based methods (e.g., Random Forests, Gradient Boosting).
+    - ...
 2. **Reducing Performance Variance Due to the Learning Algorithm**. Variance from the learning algorithm stems from stochasticity in the optimization process, such as random initialization, batch sampling, or other internal randomness. Strategies to reduce this variance include:
-  - Ensembles: Combine predictions from multiple models trained on the same data but with different initializations or configurations.
-  - Repeated Training and Averaging: Train the model multiple times with different seeds and average the predictions for a more robust output (simplest ensemble).
-  - Better Initialization: Use advanced initialization techniques, such as Xavier or He initialization, to reduce sensitivity to starting conditions.
-  - Use Stable Optimizers: Certain optimizers, such as AdamW or SGD with carefully tuned learning rates, can provide more consistent convergence compared to others.
-  - Longer Training with Early Stopping: Allow models more time to converge but use early stopping based on validation performance to avoid overfitting.
-  - ...
+    - Ensembles: Combine predictions from multiple models trained on the same data but with different initializations or configurations.
+    - Repeated Training and Averaging: Train the model multiple times with different seeds and average the predictions for a more robust output (simplest ensemble).
+    - Better Initialization: Use advanced initialization techniques, such as Xavier or He initialization, to reduce sensitivity to starting conditions.
+    - Use Stable Optimizers: Certain optimizers, such as AdamW or SGD with carefully tuned learning rates, can provide more consistent convergence compared to others.
+    - Longer Training with Early Stopping: Allow models more time to converge but use early stopping based on validation performance to avoid overfitting.
+    - ...
 3. **Reducing Overall Variance (Both Data and Algorithm)**. For a holistic reduction in variance, consider strategies that address both data and algorithm variability:
-  - Use Cross-Validation: Perform k-fold cross-validation to average out performance over different data splits and initialization seeds.
-  - Hybrid Ensembles: Combine models trained on different data subsets (bagging) with models using different algorithm configurations or seeds.
+    - Use Cross-Validation: Perform k-fold cross-validation to average out performance over different data splits and initialization seeds.
+    - Hybrid Ensembles: Combine models trained on different data subsets (bagging) with models using different algorithm configurations or seeds.
 
 For a best practice approach, combine strategies:
 
