@@ -18,45 +18,6 @@ This practice is particularly dangerous for new data scientists because it can b
 
 A more ethical approach is to use fixed random seeds for reproducibility, but to select them before seeing any results. This maintains experimental integrity while still allowing others to replicate your work.
 
-## Examples
-
-Below is a list of aspects of a data science project that could be subject to seed hacking:
-
-- **Data Splitting**
-  - Splitting datasets into training, validation, and testing sets.
-  - Shuffling data during cross-validation evaluation.
-
-- **Resampling Techniques**
-  - Bootstrapping or permutation tests.
-  - Creating synthetic datasets using resampling methods.
-
-- **Learning Algorithms**
-  - Initializing weights in neural networks.
-  - Randomly selecting subsets of data for ensemble methods like Random Forest or Bagging.
-  - Stochastic gradient descent and related stochastic optimization methods.
-
-- **Hyperparameter Optimization**
-  - Randomized search strategies for hyperparameter tuning.
-  - Distribution sampling search strategies like Bayesian Optimization.
-
-- **Data Augmentation**
-  - Random transformations for data augmentation in image or text preprocessing.
-  - Generating synthetic data for privacy-preserving data sharing or experimentation.
-  - Simulating data with specific statistical properties.
-
-- **Feature Engineering**
-  - Randomized feature selection or subset selection algorithms.
-  - Creating stochastic embeddings, e.g., in t-SNE or UMAP.
-
-### Worked Examples
-
-Some worked examples of seed hacking applied to specific aspects of a project:
-
-* [Cross-Validation Hacking](cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
-* [Train/Test Split Hacking](train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
-* [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
-* [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
-
 ## What Does a Seed-Hacked Result Mean?
 
 In a stochastic experiment, a single result is a point estimate of the unknown underlying distribution, such as the hold-out/test set prediction error.
@@ -71,6 +32,26 @@ Here's a depiction of what is happening when we pick a seed hacked result:
 
 ![seed hacked result](/pics/seed_hacked_result.svg)
 
+## Examples
+
+Below is a list of aspects of a data science project that could be subject to seed hacking:
+
+- **Data Splitting**: Splitting datasets into training, validation, and testing sets. Shuffling data during cross-validation evaluation.
+- **Resampling Techniques**: Bootstrapping or permutation tests. Creating synthetic datasets using resampling methods.
+- **Learning Algorithms**: Initializing weights in neural networks. Randomly selecting subsets of data for ensemble methods like Random Forest or Bagging. Stochastic gradient descent and related stochastic optimization methods.
+- **Hyperparameter Optimization**: Randomized search strategies for hyperparameter tuning. Distribution sampling search strategies like Bayesian Optimization.
+- **Data Augmentation**: Random transformations for data augmentation in image or text preprocessing. Generating synthetic data for privacy-preserving data sharing or experimentation. Simulating data with specific statistical properties.
+- **Feature Engineering**: Randomized feature selection or subset selection algorithms. Creating stochastic embeddings, e.g., in t-SNE or UMAP.
+
+### Worked Examples
+
+Some worked examples of seed hacking applied to specific aspects of a project:
+
+* [Cross-Validation Hacking](cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
+* [Train/Test Split Hacking](train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
+* [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
+* [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+
 ## Negative Seed Hacking
 
 How can we defend the choice of random number seed on a project?
@@ -80,7 +61,7 @@ How can we defend the choice of random number seed on a project?
 
 Then record what you chose and how you chose it in your project log.
 
-## Quantify the Variance if Models
+## Quantify the Variance of Models
 
 Consider a model that has high performance variance with different random seeds.
 
@@ -304,12 +285,12 @@ Sometimes it helps to read how others are thinking through this issue:
 ### Papers
 
 * [Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping](https://arxiv.org/abs/2002.06305), 2020.
+* [Multi-Start Methods](https://link.springer.com/chapter/10.1007/0-306-48056-5_12), Handbook of Metaheuristics, 2003.
 * [On Model Stability as a Function of Random Seed](https://arxiv.org/abs/1909.10447), 2019.
 * [Practical recommendations for gradient-based training of deep architectures](https://arxiv.org/abs/1206.5533), 2012.
 * [Pseudo-random Number Generator Influences on Average Treatment Effect Estimates Obtained with Machine Learning](https://pubmed.ncbi.nlm.nih.gov/39150879/), 2024.
 * [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
 * [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
-* [Chapter 12: Multi-Start Methods](https://link.springer.com/chapter/10.1007/0-306-48056-5_12), Handbook of Metaheuristics, 2003.
 
 ### Blog Posts
 
