@@ -50,7 +50,7 @@ Some worked examples of seed hacking applied to specific aspects of a project:
 * [Cross-Validation Hacking](cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
 * [Train/Test Split Hacking](train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
 * [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
-* [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+* [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap of a final chosen model on the test set to present the best performance._
 
 ## Negative Seed Hacking
 
@@ -58,6 +58,8 @@ How can we defend the choice of random number seed on a project?
 
 * Use a widely used default, e.g. 1 or 42 or 1234 or 1337.
 * Use the current date as an integer, e.g. DDMMYYYY.
+* Look at the clock and use the current minute and/or second value.
+* Roll die and use the number that comes up.
 
 Then record what you chose and how you chose it in your project log.
 
@@ -148,7 +150,7 @@ The best case for seed hacking is as an stochastic optimization strategy called 
 
 * Some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach.
 
-## Multiple-Restart Optimization
+### Multiple-Restart Optimization
 
 The multiple-restart strategy is a technique used to address the challenges of solving harder optimization problems, particularly non-convex ones with multiple local minima, saddle points, or other complex structures.
 
@@ -182,7 +184,7 @@ As such, we may see what looks like seed hacking in the context of deep learning
 
 The problem is, how do you tell the difference?
 
-## Seed Hacking vs Multiple-Restarts
+### Seed Hacking vs Multiple-Restarts
 
 Differentiating between a legitimate multi-restart optimization strategy and "seed hacking" (cherry-picking the best result) requires careful scrutiny of how the results are reported and interpreted.
 
