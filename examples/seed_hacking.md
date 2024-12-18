@@ -4,13 +4,13 @@
 
 ## Description
 
-Recall that the **seed** is an integer that initializes the [pseudo random number generator](https://en.wikipedia.org/wiki/Random_number_generation) and influences the specific and repeatable sequence of random numbers that are generated.
+Recall that the **random number seed** is an integer that initializes the [pseudo random number generator](https://en.wikipedia.org/wiki/Random_number_generation) and influences the specific and repeatable sequence of random numbers that are generated.
 
 **Seed hacking** or **random seed shopping** or **seed optimization** is a problematic practice where practitioners manipulate random number seeds to artificially improve model performance metrics.
 
 The technique involves repeatedly running the same experiment (e.g. model, data split, etc.) with different random seeds until finding one that produces better-looking results. This is typically done during model validation or testing phases.
 
-While random seeds are important for reproducibility, exploiting them to cherry-pick favorable outcomes introduces severe bias. This practice masks the model's true performance and can lead to poor generalization in production.
+While random seeds are important for reproducibility, exploiting them to [cherry-pick](https://en.wikipedia.org/wiki/Cherry_picking) favorable outcomes introduces severe bias. This practice masks the model's true performance and can lead to poor generalization in production.
 
 The key issue is that seed hacking violates the principle of independent validation. By selecting seeds based on outcomes, you're effectively leaking information from your test set into your model selection process.
 
@@ -319,3 +319,6 @@ Lots of people struggling with choosing/optimizing the random seed out there in 
 * [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
 * [Why is it valid to use CV to set parameters and hyperparameters but not seeds?](https://stats.stackexchange.com/questions/341619/why-is-it-valid-to-use-cv-to-set-parameters-and-hyperparameters-but-not-seeds)
 * [XGBoost - "Optimizing Random Seed"](https://stats.stackexchange.com/questions/273230/xgboost-optimizing-random-seed)
+
+
+
