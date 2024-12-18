@@ -24,9 +24,11 @@ In a stochastic experiment, a single result is a point estimate of the unknown u
 
 If we repeat the experiment and vary the randomness (e.g., by using different random seeds for data splits or model initialization) we obtain a distribution of estimates. Taking the mean, standard deviation, or confidence interval of this distribution gives us a more accurate and reliable understanding of the model's true performance.
 
-However, when we hack the seed to deliberately select the best possible result (e.g., lowest error or highest accuracy), we introduce systematic bias. Rather than estimating the true mean of the performance distribution, we shift the estimate in a favorable direction.
+However, when we hack the seed to deliberately select the best possible result (e.g., lowest error or highest accuracy), we introduce [systematic bias](https://en.wikipedia.org/wiki/Observational_error). Rather than estimating the true mean of the performance distribution, we shift the estimate in a favorable direction.
 
 The result is no longer a fair or unbiased reflection of the model's performance but instead an overoptimistic artifact of the chosen randomness. This shift can be substantial and misrepresent the model's real-world generalizability.
+
+**Intentionally introducing a systematic bias by seed hacking is deceptive and misleading, perhaps fraud.**
 
 Here's a depiction of what is happening when we pick a seed hacked result:
 
