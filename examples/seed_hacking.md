@@ -147,14 +147,71 @@ You can reduce variance in the learning algorithm by averaging the predictions f
 
 Is there such a thing as ethical seed hacking (in machine learning/data science)?
 
-I don't want to say _never_, some ideas that come to mind:
+YES!
+
+Here are some softer rationales:
 
 * Perhaps you want to make a point for a demonstration, presentation, course, tutorial, etc.?
 * Perhaps you require the best descriptive rather than predictive model?
-* Perhaps you want to find best and worst case performance due to learning algorithm/initial condition variance?
-* Perhaps some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach (e.g. clustering, embeddings, maybe large neural nets, etc.)?
+* Perhaps you want to find best/worst/distribution performance due to learning algorithm/initial condition variance (e.g. a sensitivity analysis)?
 
-Perhaps people that advocate seed hacking are thinking about the last point above, but perhaps incorrectly for their chosen algorithm (e.g. xgboost or random forest).
+The best case for seed hacking is as an stochastic optimization strategy called "multiple-restarts":
+
+* Some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach.
+
+## Multi-Restart Optimization
+
+The multi-restart strategy is a technique used to address the challenges of solving harder optimization problems, particularly non-convex ones with multiple local minima, saddle points, or other complex structures.
+
+By running the optimization process multiple times with different initial conditions or random seeds, this approach increases the likelihood of exploring diverse regions of the solution space and finding better optima.
+
+> Heuristic search procedures that aspire to find global optimal solutions to hard combinatorial optimization problems usually require some type of diversification to overcome local optimality. One way to achieve diversification is to re-start the procedure from a new solution once a region has been explored.
+
+-- [Chapter 12: Multi-Start Methods](https://link.springer.com/chapter/10.1007/0-306-48056-5_12), Handbook of Metaheuristics, 2003.
+
+It is especially beneficial for algorithms that are sensitive to initialization, such as neural networks, clustering methods (e.g., K-Means), or stochastic optimization algorithms.
+
+While multi-restart offers significant advantages for non-convex and multimodal problems, it provides little to no benefit for convex optimization problems, where the global minimum is guaranteed regardless of the starting point.
+
+The strategy effectively balances computational cost with solution quality in scenarios where optimality cannot be guaranteed in a single run.
+
+Below is a table of common machine learning algorithms, the type of optimization problem they solving (e.g. convex or non-convex), whether they are sensitive to initial conditions, and whether they will benefit from multiple restarts:
+
+| Algorithm                | Problem Type    | Sensitivity | Multi-Restart Benefit |
+|--------------------------|-----------------|-------------|-----------------------|
+| Linear Regression        | Convex          | None        | None                  |
+| Logistic Regression      | Convex          | Minimal     | Minimal               |
+| K-Means                  | Non-convex      | High        | High                  |
+| t-SNE                    | Non-convex      | High        | High                  |
+| Neural Networks          | Non-convex      | High        | High                  |
+| Random Forests           | Non-convex      | Low         | Low to Moderate       |
+| SVC                      | Convex          | None        | None                  |
+| PCA                      | Convex          | None        | None                  |
+
+
+As such, we may see what looks like seed hacking in the context of deep learning / reinforcement learning work, which may in fact be examples of a multiple-restart optimization.
+
+The problem is, how do you tell the difference.
+
+## Seed Hacking vs Multiple-Restarts
+
+Differentiating between a legitimate multi-restart optimization strategy and "seed hacking" (cherry-picking the best result) requires careful scrutiny of how the results are reported and interpreted.
+
+Below are the characteristics of **legitimate multi-restart optimization**:
+
+1. **Disclosure of Multi-Restart Process**: Clearly states that a multi-restart strategy was employed and describes the number of restarts, initialization strategy, and hyperparameters.
+2. **Performance Distribution Reporting: Reports the distribution of performance metrics across restarts, including mean, median, standard deviation, and possibly full histograms or box plots. This allows readers to assess the stability of the algorithm and whether the best result is an outlier or representative of typical performance.
+3. **Procedure Replication:** If the "best result" is highlighted, it contextualizes this by repeating the entire multi-restart procedure multiple times and reporting the distribution of "best-of-restart" scores. This provides confidence that the approach is not a one-off fluke.
+4. **Statistical Robustness:** Includes statistical tests to verify whether improvements from the best restart are statistically significant compared to baselines or other algorithms.
+5. **Sensitivity Analysis:** Reports how sensitive the algorithm is to random initialization, demonstrating whether consistent performance can be expected or if results are highly variable.
+
+Conversely, below are the characteristics of **seed hacking with multi-restart optimization**:
+
+1. **Single Point Estimate:** Reports only the best result without contextualizing it within the broader distribution of outcomes across restarts. This ignores variability and may cherry-pick an optimistic outlier.
+2. **Non-Disclosure of Multi-Restart:** Fails to disclose that multiple restarts or seeds were used. This gives the impression that the reported result comes from a single unbiased run.
+3. **Absence of Distribution Information:** Does not provide statistics (e.g., mean, standard deviation, quantiles) of performance across restarts. This lacks transparency on how consistently high-quality solutions are found.
+4. **Selective Comparisons:** Compares the "best restart" of one algorithm with the "average performance" of another algorithm or baseline, creating unfair comparisons.
+
 
 ## FAQ
 
@@ -228,6 +285,8 @@ Empirically, you can sample results for a ton of seeds and see where you sit on 
 
 This is really hard and an "it depends" is the best I can manage.
 
+See the sections above on "Multi-Restart Optimization" and "Seed Hacking vs Multiple-Restarts".
+
 ## Further Reading
 
 Sometimes it helps to read how others are thinking through this issue:
@@ -240,6 +299,7 @@ Sometimes it helps to read how others are thinking through this issue:
 * [Pseudo-random Number Generator Influences on Average Treatment Effect Estimates Obtained with Machine Learning](https://pubmed.ncbi.nlm.nih.gov/39150879/), 2024.
 * [Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision](https://arxiv.org/abs/2109.08203), 2021.
 * [We need to talk about random seeds](https://arxiv.org/abs/2210.13393), 2022.
+* [Chapter 12: Multi-Start Methods](https://link.springer.com/chapter/10.1007/0-306-48056-5_12), Handbook of Metaheuristics, 2003.
 
 ### Blog Posts
 
@@ -266,4 +326,3 @@ Lots of people struggling with choosing/optimizing the random seed out there in 
 * [Performance of Ridge and Lasso Regression depend on set.seed?](https://stats.stackexchange.com/questions/355256/performance-of-ridge-and-lasso-regression-depend-on-set-seed)
 * [Why is it valid to use CV to set parameters and hyperparameters but not seeds?](https://stats.stackexchange.com/questions/341619/why-is-it-valid-to-use-cv-to-set-parameters-and-hyperparameters-but-not-seeds)
 * [XGBoost - "Optimizing Random Seed"](https://stats.stackexchange.com/questions/273230/xgboost-optimizing-random-seed)
-
