@@ -115,7 +115,7 @@ Nevertheless, here are some ideas:
   - Use Stable Optimizers: Certain optimizers, such as AdamW or SGD with carefully tuned learning rates, can provide more consistent convergence compared to others.
   - Longer Training with Early Stopping: Allow models more time to converge but use early stopping based on validation performance to avoid overfitting.
   - ...
-3 **Reducing Overall Variance (Both Data and Algorithm)**. For a holistic reduction in variance, consider strategies that address both data and algorithm variability:
+3. **Reducing Overall Variance (Both Data and Algorithm)**. For a holistic reduction in variance, consider strategies that address both data and algorithm variability:
   - Use Cross-Validation: Perform k-fold cross-validation to average out performance over different data splits and initialization seeds.
   - Hybrid Ensembles: Combine models trained on different data subsets (bagging) with models using different algorithm configurations or seeds.
 
