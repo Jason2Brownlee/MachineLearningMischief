@@ -81,14 +81,14 @@ This involves:
 For example:
 
 1. **Hold the Model Constant and Vary the Data**: Use techniques like k-fold cross-validation (CV), repeated k-fold CV, or repeated train/test splits while keeping the model and its random initialization fixed.
-  - Quantify how sensitive the model's performance is to variations in the training and test data splits.
-  - This approach reveals variance caused by differences in the sampled training/test data and helps assess the model's robustness to data variability.
+    - Quantify how sensitive the model's performance is to variations in the training and test data splits.
+    - This approach reveals variance caused by differences in the sampled training/test data and helps assess the model's robustness to data variability.
 2. **Hold the Data Constant and Vary the Learning Algorithm**: Use a fixed dataset and vary only the random seed for the algorithm (e.g., random initialization of weights, dropout masks, or other stochastic elements).
-  - Quantify how the inherent randomness in the learning process affects model performance.
-  - This captures the variance caused by the stochastic nature of the optimization algorithm or training procedure.
+    - Quantify how the inherent randomness in the learning process affects model performance.
+    - This captures the variance caused by the stochastic nature of the optimization algorithm or training procedure.
 3. **Vary Both the Data and the Learning Algorithm**: Randomize both the data (through k-fold CV or similar techniques) and the algorithm (through different seeds).
-  - Assess the **total variance** in the learning process, encompassing both data variability and algorithm randomness.
-  - This provides a holistic view of the overall variability in model performance.
+    - Assess the **total variance** in the learning process, encompassing both data variability and algorithm randomness.
+    - This provides a holistic view of the overall variability in model performance.
 
 How much variance to expect? It really depends.
 
