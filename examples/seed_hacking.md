@@ -71,7 +71,36 @@ Here's a depiction of what is happening when we pick a seed hacked result:
 
 ![seed hacked result](/pics/seed_hacked_result.svg)
 
-## What About Large One-Off Models?
+## Negative Seed Hacking
+
+How can we defend the choice of random number seed on a project?
+
+* Use a widely used default, e.g. 1 or 42 or 1234 or 1337.
+* Use the current date as an integer, e.g. DDMMYYYY.
+
+Then record what you chose and how you chose it in your project log.
+
+## Quantify the Variance if Models
+
+Consider a model that has high performance variance with different random seeds.
+
+In this case, try a _sensitivity analysis_ aka model stability/robustness study.
+
+Explore how sensitive your setup (data + model) is to randomness.
+
+1. Quantify the variance caused by changing the seed in the test harness. Hold the model constant (e.g. the seed and all other hyperparameters) and vary the seed for the test harness (train/test split or k-fold cross validation) and report the performance distribution to discover how sensitive the model is to changes to train/test data.
+2. Quantify the variance caused by changing the seed in the model. Hold the test harness constant (e.g. the seed that controls the data splitting) and vary the seed for the mode and report the performance distribution to discover how sensitive the model is to changes to the stochastic learning algorithm/initial conditions.
+3. Combine 1. and 2.
+
+How much variance to expect? It depends.
+
+The performance variance due to data could be a few percent (e.g. 1-2%). THe performance variance due to learning algorithm could be a a few tenths of a percent (e.g. 0.2-0.4%).
+
+You can reduce the variance to the data with regularization.
+
+You can reduce variance in the learning algorithm by averaging the predictions from multiple models with different seeds (final model ensemble).
+
+## What About Large One-Off Models (e.g. neural nets)?
 
 Some large deep learning neural networks can take days, weeks, or months to train, often at great expense.
 
@@ -118,33 +147,9 @@ And:
 
 -- [Practical recommendations for gradient-based training of deep architectures](https://arxiv.org/abs/1206.5533), 2012.
 
-## Negative Seed Hacking
+If you can perform multiple training runs for your neural network model, then you should, **with different random number seeds**.
 
-How can we defend the choice of random number seed on a project?
-
-* Use a widely used default, e.g. 1 or 42 or 1234 or 1337.
-* Use the current date as an integer, e.g. DDMMYYYY.
-
-Then record what you chose and how you chose it in your project log.
-
-## Quantify Variance
-
-If you're worried, and I know you are because you're reading this, here's something to try: a _sensitivity analysis_ aka model stability/robustness study.
-
-Explore how sensitive your setup (data + model) is to randomness.
-
-1. Quantify the variance caused by changing the seed in the test harness. Hold the model constant (e.g. the seed and all other hyperparameters) and vary the seed for the test harness (train/test split or k-fold cross validation) and report the performance distribution to discover how sensitive the model is to changes to train/test data.
-2. Quantify the variance caused by changing the seed in the model. Hold the test harness constant (e.g. the seed that controls the data splitting) and vary the seed for the mode and report the performance distribution to discover how sensitive the model is to changes to the stochastic learning algorithm/initial conditions.
-3. Combine 1. and 2.
-
-How much variance to expect? It depends.
-
-The performance variance due to data could be a few percent (e.g. 1-2%). THe performance variance due to learning algorithm could be a a few tenths of a percent (e.g. 0.2-0.4%).
-
-You can reduce the variance to the data with regularization.
-
-You can reduce variance in the learning algorithm by averaging the predictions from multiple models with different seeds (final model ensemble).
-
+This is called multiple-restart optimization, see below.
 
 ## When is Seed Hacking Ethical?
 
