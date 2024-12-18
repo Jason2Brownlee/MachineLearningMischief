@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+  <!-- Background -->
+  <rect width="500" height="300" fill="white"/>
+  
+  <!-- Axes -->
+  <line x1="50" y1="250" x2="450" y2="250" stroke="black" stroke-width="2"/>
+  <line x1="50" y1="250" x2="50" y2="50" stroke="black" stroke-width="2"/>
+  
+  <!-- X-axis label -->
+  <text x="250" y="290" text-anchor="middle" font-size="14">Model Performance</text>
+  
+  <!-- Y-axis label -->
+  <text x="20" y="150" text-anchor="middle" transform="rotate(-90, 20, 150)" font-size="14">Frequency</text>
+  
+  <!-- Normal distribution curve -->
+  <path d="M50,250 C50,250 100,240 150,200 C200,160 220,100 250,80 C280,100 300,160 350,200 C400,240 450,250 450,250" 
+        fill="none" stroke="#2196F3" stroke-width="2"/>
+  
+  <!-- Filled area under the curve -->
+  <path d="M50,250 C50,250 100,240 150,200 C200,160 220,100 250,80 C280,100 300,160 350,200 C400,240 450,250 450,250 L450,250 L50,250 Z" 
+        fill="#2196F3" fill-opacity="0.2"/>
+  
+  <!-- Median line -->
+  <line x1="250" y1="250" x2="250" y2="60" stroke="#1B5E20" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="250" y="45" text-anchor="middle" fill="#1B5E20" font-size="12">Fair Estimate (Median)</text>
+  
+  <!-- Seed-hacked result - with extended line -->
+  <line x1="430" y1="250" x2="430" y2="170" stroke="#D32F2F" stroke-width="2"/>
+  <path d="M425,190 L430,170 L435,190" fill="none" stroke="#D32F2F" stroke-width="2"/>
+  <text x="430" y="160" text-anchor="middle" fill="#D32F2F" font-size="12">Seed-Hacked Result</text>
+  
+  <!-- X-axis ticks and labels -->
+  <line x1="150" y1="250" x2="150" y2="255" stroke="black" stroke-width="2"/>
+  <line x1="250" y1="250" x2="250" y2="255" stroke="black" stroke-width="2"/>
+  <line x1="350" y1="250" x2="350" y2="255" stroke="black" stroke-width="2"/>
+  <text x="150" y="270" text-anchor="middle" font-size="12">0.75</text>
+  <text x="250" y="270" text-anchor="middle" font-size="12">0.80</text>
+  <text x="350" y="270" text-anchor="middle" font-size="12">0.85</text>
+</svg>

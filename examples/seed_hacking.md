@@ -67,6 +67,9 @@ However, when we hack the seed to deliberately select the best possible result (
 
 The result is no longer a fair or unbiased reflection of the model's performance but instead an overoptimistic artifact of the chosen randomness. This shift can be substantial and misrepresent the model's real-world generalizability.
 
+Here's a depiction of what is happening when we pick a seed hacked result:
+
+![seed hacked result](/pics/seed_hacked_result.svg)
 
 ## What About Large One-Off Models?
 
