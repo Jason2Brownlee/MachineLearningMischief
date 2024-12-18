@@ -95,7 +95,7 @@ How much variance to expect? It really depends.
 - The variance due to data could be a few percent (e.g. 1-2%).
 - The variance due to learning algorithm could be a few tenths of a percent to a few percent (e.g. 0.2-0.4% or 1-2%).
 
-## Reduce the Variance
+### Reduce the Variance
 
 Variance is reduced by adding bias, we cannot escape the [Bias–variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff).
 
