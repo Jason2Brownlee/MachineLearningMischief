@@ -159,9 +159,9 @@ The best case for seed hacking is as an stochastic optimization strategy called 
 
 * Some learning algorithms are solving a really hard (e.g. non-convex/discontinuous/deceptive/multimodal/etc.) optimization problem and random restarts of initial conditions in the search space is in fact a beneficial approach.
 
-## Multi-Restart Optimization
+## Multiple-Restart Optimization
 
-The multi-restart strategy is a technique used to address the challenges of solving harder optimization problems, particularly non-convex ones with multiple local minima, saddle points, or other complex structures.
+The multiple-restart strategy is a technique used to address the challenges of solving harder optimization problems, particularly non-convex ones with multiple local minima, saddle points, or other complex structures.
 
 By running the optimization process multiple times with different initial conditions or random seeds, this approach increases the likelihood of exploring diverse regions of the solution space and finding better optima.
 
@@ -175,7 +175,7 @@ While multi-restart offers significant advantages for non-convex and multimodal 
 
 The strategy effectively balances computational cost with solution quality in scenarios where optimality cannot be guaranteed in a single run.
 
-Below is a table of common machine learning algorithms, the type of optimization problem they solving (e.g. convex or non-convex), whether they are sensitive to initial conditions, and whether they will benefit from multiple restarts:
+Below is a table of common machine learning algorithms, the type of optimization problem they are solving (e.g. convex or non-convex), whether they are sensitive to initial conditions, and whether they will benefit from multiple restarts:
 
 | Algorithm                | Problem Type    | Sensitivity | Multi-Restart Benefit |
 |--------------------------|-----------------|-------------|-----------------------|
@@ -191,7 +191,7 @@ Below is a table of common machine learning algorithms, the type of optimization
 
 As such, we may see what looks like seed hacking in the context of deep learning / reinforcement learning work, which may in fact be examples of a multiple-restart optimization.
 
-The problem is, how do you tell the difference.
+The problem is, how do you tell the difference?
 
 ## Seed Hacking vs Multiple-Restarts
 
@@ -200,7 +200,7 @@ Differentiating between a legitimate multi-restart optimization strategy and "se
 Below are the characteristics of **legitimate multi-restart optimization**:
 
 1. **Disclosure of Multi-Restart Process**: Clearly states that a multi-restart strategy was employed and describes the number of restarts, initialization strategy, and hyperparameters.
-2. **Performance Distribution Reporting: Reports the distribution of performance metrics across restarts, including mean, median, standard deviation, and possibly full histograms or box plots. This allows readers to assess the stability of the algorithm and whether the best result is an outlier or representative of typical performance.
+2. **Performance Distribution Reporting**: Reports the distribution of performance metrics across restarts, including mean, median, standard deviation, and possibly full histograms or box plots. This allows readers to assess the stability of the algorithm and whether the best result is an outlier or representative of typical performance.
 3. **Procedure Replication:** If the "best result" is highlighted, it contextualizes this by repeating the entire multi-restart procedure multiple times and reporting the distribution of "best-of-restart" scores. This provides confidence that the approach is not a one-off fluke.
 4. **Statistical Robustness:** Includes statistical tests to verify whether improvements from the best restart are statistically significant compared to baselines or other algorithms.
 5. **Sensitivity Analysis:** Reports how sensitive the algorithm is to random initialization, demonstrating whether consistent performance can be expected or if results are highly variable.
@@ -285,7 +285,7 @@ Empirically, you can sample results for a ton of seeds and see where you sit on 
 
 This is really hard and an "it depends" is the best I can manage.
 
-See the sections above on "Multi-Restart Optimization" and "Seed Hacking vs Multiple-Restarts".
+See the sections above on "Multiple-Restart Optimization" and "Seed Hacking vs Multiple-Restarts".
 
 ## Further Reading
 
