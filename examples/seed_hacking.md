@@ -65,25 +65,65 @@ How can we defend the choice of random number seed on a project?
 
 Then record what you chose and how you chose it in your project log.
 
-## Quantify the Variance of Models
+## Quantify the Variance
 
-Consider a model that has high performance variance with different random seeds.
+Don't guess or ignore the variance, measure and it.
 
-In this case, try a _sensitivity analysis_ aka model stability/robustness study.
+Perform a _sensitivity analysis_ aka stability/robustness study.
 
-Explore how sensitive your setup (data + model) is to randomness.
+This involves:
 
-1. Quantify the variance caused by changing the seed in the test harness. Hold the model constant (e.g. the seed and all other hyperparameters) and vary the seed for the test harness (train/test split or k-fold cross validation) and report the performance distribution to discover how sensitive the model is to changes to train/test data.
-2. Quantify the variance caused by changing the seed in the model. Hold the test harness constant (e.g. the seed that controls the data splitting) and vary the seed for the mode and report the performance distribution to discover how sensitive the model is to changes to the stochastic learning algorithm/initial conditions.
-3. Combine 1. and 2.
+1. Hold everything in your setup (data + model) constant.
+2. Pick one aspect of your setup that uses randomness.
+3. Vary the randomness for that one aspect (e.g. 30+ runs each with a different seed).
+4. Collect performance scores and report/analyze the distribution (best + worst, mean + stdev, median + confidence interval, etc.).
 
-How much variance to expect? It depends.
+For example:
 
-The performance variance due to data could be a few percent (e.g. 1-2%). THe performance variance due to learning algorithm could be a a few tenths of a percent (e.g. 0.2-0.4%).
+1. **Hold the Model Constant and Vary the Data**: Use techniques like k-fold cross-validation (CV), repeated k-fold CV, or repeated train/test splits while keeping the model and its random initialization fixed.
+  - Quantify how sensitive the model's performance is to variations in the training and test data splits.
+  - This approach reveals variance caused by differences in the sampled training/test data and helps assess the model's robustness to data variability.
+2. **Hold the Data Constant and Vary the Learning Algorithm**: Use a fixed dataset and vary only the random seed for the algorithm (e.g., random initialization of weights, dropout masks, or other stochastic elements).
+  - Quantify how the inherent randomness in the learning process affects model performance.
+  - This captures the variance caused by the stochastic nature of the optimization algorithm or training procedure.
+3. **Vary Both the Data and the Learning Algorithm**: Randomize both the data (through k-fold CV or similar techniques) and the algorithm (through different seeds).
+  - Assess the **total variance** in the learning process, encompassing both data variability and algorithm randomness.
+  - This provides a holistic view of the overall variability in model performance.
 
-You can reduce the variance to the data with regularization.
+How much variance to expect? It really depends.
 
-You can reduce variance in the learning algorithm by averaging the predictions from multiple models with different seeds (final model ensemble).
+- The variance due to data could be a few percent (e.g. 1-2%).
+- The variance due to learning algorithm could be a few tenths of a percent to a few percent (e.g. 0.2-0.4% or 1-2%).
+
+## Reduce the Variance
+
+Variance is reduced by adding bias, we cannot escape the [Bias–variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff).
+
+The techniques for reducing variance are typically specific to your setup, especially your model.
+
+Nevertheless, here are some ideas:
+
+1. **Reducing Performance Variance Due to Data**. Variance from data arises because models are sensitive to the specific training or test samples provided. Strategies to mitigate this include:
+  - Regularization: Penalize model complexity to prevent overfitting to specific data splits.
+  - Use More Data: Larger datasets typically reduce variability by making training samples more representative of the underlying distribution.
+  - Robust Models: Use algorithms known for robustness to outliers or data variability, such as tree-based methods (e.g., Random Forests, Gradient Boosting).
+  - ...
+2. **Reducing Performance Variance Due to the Learning Algorithm**. Variance from the learning algorithm stems from stochasticity in the optimization process, such as random initialization, batch sampling, or other internal randomness. Strategies to reduce this variance include:
+  - Ensembles: Combine predictions from multiple models trained on the same data but with different initializations or configurations.
+  - Repeated Training and Averaging: Train the model multiple times with different seeds and average the predictions for a more robust output (simplest ensemble).
+  - Better Initialization: Use advanced initialization techniques, such as Xavier or He initialization, to reduce sensitivity to starting conditions.
+  - Use Stable Optimizers: Certain optimizers, such as AdamW or SGD with carefully tuned learning rates, can provide more consistent convergence compared to others.
+  - Longer Training with Early Stopping: Allow models more time to converge but use early stopping based on validation performance to avoid overfitting.
+  - ...
+3 **Reducing Overall Variance (Both Data and Algorithm)**. For a holistic reduction in variance, consider strategies that address both data and algorithm variability:
+  - Use Cross-Validation: Perform k-fold cross-validation to average out performance over different data splits and initialization seeds.
+  - Hybrid Ensembles: Combine models trained on different data subsets (bagging) with models using different algorithm configurations or seeds.
+
+For a best practice approach, combine strategies:
+
+- Regularize the model and preprocess data to reduce data-driven variance.
+- Use ensembles or repeated runs to reduce algorithm-driven variance.
+- Report distributions of performance metrics to transparently communicate variability.
 
 ## What About Large One-Off Models (e.g. neural nets)?
 
