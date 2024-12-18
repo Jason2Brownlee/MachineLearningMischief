@@ -67,9 +67,9 @@ Then record what you chose and how you chose it in your project log.
 
 ## Quantify the Variance
 
-Don't guess or ignore the variance, measure and it.
+Don't guess or ignore the variance, measure and report it.
 
-Perform a _sensitivity analysis_ aka stability/robustness study.
+Perform a [sensitivity analysis](https://en.wikipedia.org/wiki/Sensitivity_analysis) aka stability/robustness study.
 
 This involves:
 
