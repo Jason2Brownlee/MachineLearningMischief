@@ -54,6 +54,8 @@ Some worked examples of seed hacking applied to specific aspects of a project:
 * [Model Selection Hacking](model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
 * [Performance Hacking](performance_hacking.md): _Vary the seed for a bootstrap of a final chosen model on the test set to present the best performance._
 
+More seed hacking examples for learning algorithms: [bagging](src/seed_hacking_bagging.py), [decision tree](src/seed_hacking_decision_tree.py), [gradient boosting](src/seed_hacking_gradient_boosting.py), [logistic regression](src/seed_hacking_logistic_regression.py), [multilayer perceptron](src/seed_hacking_multilayer_percepron.py), [perceptron](src/seed_hacking_perceptron.py), [random forest](src/seed_hacking_random_forest.py), [ridge classifier](src/seed_hacking_ridge_classifier.py), [sgd classifier](src/seed_hacking_sgd_classifier.py).
+
 ## Negative Seed Hacking
 
 How can we defend the choice of random number seed on a project?
