@@ -10,7 +10,7 @@ This approach involves running multiple [statistical hypothesis tests](https://e
 
 While it may seem tempting to keep testing until you get "significant" results, p-hacking invalidates the fundamental principles of statistical testing and leads to false discoveries.
 
-The danger lies in increasing the likelihood of Type I errors (false positives) through multiple comparisons, making spurious correlations appear meaningful when they're actually due to random chance.
+The danger lies in increasing the likelihood of [Type I errors](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors) (false positives) through multiple comparisons, making spurious **mean differences** and **correlations** appear meaningful when they're actually due to random chance.
 
 For new data scientists, this pattern often emerges unintentionally when there's pressure to find significant results or when dealing with stakeholder expectations for positive outcomes.
 
@@ -18,7 +18,7 @@ To avoid p-hacking, define your hypothesis and analysis plan before examining th
 
 Remember that negative results are valid scientific outcomes and should be reported alongside positive findings to maintain research integrity.
 
-## Cases of p-hacking
+## Cases of p-hacking in Machine Learning
 
 Any time we want to use a statistical hypothesis test to compare two samples in a data science/machine learning project, this represents a point for p-hacking.
 
