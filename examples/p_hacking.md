@@ -118,10 +118,8 @@ To avoid unintentional p-hacking while exploring variations in machine learning 
 | **Aspect**        | **P-Hacking**                                                                 | **Normal Variation**                                                         |
 |--------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | **Intent**         | Achieve desired results (e.g., statistical significance) at the cost of integrity. | Identify the best-performing configuration while ensuring robustness.        |
-| **Methodology**    | Cherry-picks or over-explores configurations to obtain favorable outcomes.   | Systematically and reproducibly explores configurations.                     |
-|                    | Lacks transparency; omits reporting of failures.                             | Follows predefined protocols; reports successes and failures comprehensively.|
-| **Evaluation**     | Focuses on statistical tests to confirm hypotheses, often ignoring context. | Evaluates unbiased metrics (e.g., accuracy, F1 score) on unseen test data.   |
-|                    | Selectively reports results that support the hypothesis.                    | Reports entire spectrum of experiments for transparency.                     |
+| **Methodology**    | Cherry-picks or over-explores configurations to obtain favorable outcomes. Lacks transparency; omits reporting of failures.   | Systematically and reproducibly explores configurations. Follows predefined protocols; reports successes and failures comprehensively. |
+| **Evaluation**     | Focuses on statistical tests to confirm hypotheses, often ignoring context. Selectively reports results that support the hypothesis. | Evaluates unbiased metrics (e.g., accuracy, F1 score) on unseen test data. Reports entire spectrum of experiments for transparency.   |
 | **Reporting**      | Results often fail to generalize; lacks reproducibility.                    | Stresses reproducibility; shares code, data, and protocols.                  |
 | **Impact**         | Misleading conclusions, wasted resources, erosion of trust.                 | Robust findings, confidence in results, adherence to ethical standards.      |
 | **Key Distinction**| Prioritizes "impressive" results over scientific rigor.                     | Prioritizes transparency, integrity, and reproducibility.                    |
