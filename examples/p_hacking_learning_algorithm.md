@@ -14,7 +14,7 @@ This practice undermines the reliability of machine learning results by focusing
 
 Here, we are evaluating the "same" model on the same data, only varying the random number seed (e.g. vary the learning algorithm slightly).
 
-There should be no statistically significant difference between runs, but we continue the trial until a difference is found due to high-variance/randomness.
+There (generally) should be no statistically significant difference between runs, but we continue the trial until a difference is found due to high-variance/randomness.
 
 ```python
 # Import necessary libraries
