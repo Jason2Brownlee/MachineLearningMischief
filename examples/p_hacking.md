@@ -48,25 +48,25 @@ From a statistical perspective, when we say two samples are different and that t
 Here's what this means, and why p-hacking can make this problematic:
 
 ### What Statistical Significance Means
-1. **Null Hypothesis (\(H_0\))**:
-   - The null hypothesis posits that there is no true difference between the two samples or groups. For example, it might assert that the means of the two samples are equal (\( \mu_1 = \mu_2 \)).
+1. **Null Hypothesis ($H_0$)**:
+   - The null hypothesis posits that there is no true difference between the two samples or groups. For example, it might assert that the means of the two samples are equal ($ \mu_1 = \mu_2 $).
 
-2. **Alternative Hypothesis (\(H_a\))**:
-   - The alternative hypothesis suggests that there is a true difference between the two samples (\( \mu_1 \neq \mu_2 \)).
+2. **Alternative Hypothesis ($H_a$)**:
+   - The alternative hypothesis suggests that there is a true difference between the two samples ($ \mu_1 \neq \mu_2 $).
 
 3. **P-Value**:
    - The p-value quantifies the probability of observing a test statistic as extreme (or more extreme) as the one calculated from the data, assuming the null hypothesis is true.
    - A low p-value (typically less than 0.05) suggests that such extreme data is unlikely under the null hypothesis, leading to its rejection.
 
 4. **Statistical Significance**:
-   - When a test concludes "statistical significance," it means the data provides sufficient evidence to reject \(H_0\) at a predefined significance level (\(\alpha\)), often 0.05.
+   - When a test concludes "statistical significance," it means the data provides sufficient evidence to reject $H_0$ at a predefined significance level ($\alpha$), often 0.05.
 
 ### The Problem with P-Hacking
 1. **Inflated False Positives**:
    - The p-value is conditional on the null hypothesis being true and the experimental procedure being followed correctly. P-hacking violates this assumption by:
      - Testing multiple hypotheses without proper correction.
      - Cherry-picking results or repeating experiments until a significant p-value is found.
-   - This inflates the Type I error rate, leading to a higher likelihood of false positives (erroneously rejecting \(H_0\) when it is actually true).
+   - This inflates the Type I error rate, leading to a higher likelihood of false positives (erroneously rejecting $H_0$ when it is actually true).
 
 2. **Violation of Assumptions**:
    - Many statistical tests assume random sampling, independence, or a fixed number of hypotheses. P-hacking often violates these assumptions, invalidating the reported p-value.
