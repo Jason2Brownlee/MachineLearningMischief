@@ -20,7 +20,7 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 	* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
 	* [Performance Hacking](examples/performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
 * [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
-	* [p-Hacking Selective Sampling](p_hacking_selective_sampling.md): Repeated subsample a dataset to find a subset that results in significantly better performance.
+	* [p-Hacking Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples of a dataset in order to fit a model with significantly better performance._
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Test Set Pruning](examples/test_set_pruning.md): _Remove hard-to-predict examples from the test set to improve results._

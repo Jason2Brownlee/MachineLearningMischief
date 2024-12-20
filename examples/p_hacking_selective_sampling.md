@@ -1,6 +1,6 @@
 # p-Hacking Selective Sampling
 
-> Repeated subsample a dataset to find a subset that results in significantly better performance.
+> Vary samples of a dataset in order to fit a model with significantly better performance.
 
 ## Description
 
