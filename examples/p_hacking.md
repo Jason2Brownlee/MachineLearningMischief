@@ -6,7 +6,7 @@
 
 P-hacking is the practice of manipulating data analysis until you achieve a statistically significant result, typically to support a predetermined conclusion.
 
-This approach involves running multiple statistical tests on the same dataset, selectively choosing which data points to include, or adjusting variables until achieving the desired p-value (typically < 0.05).
+This approach involves running multiple [statistical hypothesis tests](https://en.wikipedia.org/wiki/Statistical_hypothesis_test) on the same dataset, selectively choosing which data points to include, or adjusting variables until achieving the desired [p-value](https://en.wikipedia.org/wiki/P-value) (typically < 0.05).
 
 While it may seem tempting to keep testing until you get "significant" results, p-hacking invalidates the fundamental principles of statistical testing and leads to false discoveries.
 
@@ -49,10 +49,10 @@ Here's what this means, and why p-hacking can make this problematic:
 
 ### What Statistical Significance Means
 1. **Null Hypothesis ($H_0$)**:
-   - The null hypothesis posits that there is no true difference between the two samples or groups. For example, it might assert that the means of the two samples are equal ($ \mu_1 = \mu_2 $).
+   - The null hypothesis posits that there is no true difference between the two samples or groups. For example, it might assert that the means of the two samples are equal ($\mu_1 = \mu_2$).
 
 2. **Alternative Hypothesis ($H_a$)**:
-   - The alternative hypothesis suggests that there is a true difference between the two samples ($ \mu_1 \neq \mu_2 $).
+   - The alternative hypothesis suggests that there is a true difference between the two samples ($\mu_1 \neq \mu_2$).
 
 3. **P-Value**:
    - The p-value quantifies the probability of observing a test statistic as extreme (or more extreme) as the one calculated from the data, assuming the null hypothesis is true.
