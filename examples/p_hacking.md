@@ -41,6 +41,42 @@ Below are some worked examples of p-hacking in a data science/machine learning p
 * [p-Hacking Feature Selection](p_hacking_feature_selection.md): _Vary feature subsets of a dataset in order to fit a model with significantly better performance._
 * [p-Hacking the Learning Algorithm](p_hacking_learning_algorithm.md) _Vary the random numbers used by a learning algorithm in order to get a significantly better result._
 
+## What Does a p-Hacked Result Mean?
+
+From a statistical perspective, when we say two samples are different and that the difference is significant according to a statistical test, we are typically referring to the rejection of the null hypothesis in favor of the alternative hypothesis based on a test statistic.
+
+Here's what this means, and why p-hacking can make this problematic:
+
+### What Statistical Significance Means
+1. **Null Hypothesis (\(H_0\))**:
+   - The null hypothesis posits that there is no true difference between the two samples or groups. For example, it might assert that the means of the two samples are equal (\( \mu_1 = \mu_2 \)).
+
+2. **Alternative Hypothesis (\(H_a\))**:
+   - The alternative hypothesis suggests that there is a true difference between the two samples (\( \mu_1 \neq \mu_2 \)).
+
+3. **P-Value**:
+   - The p-value quantifies the probability of observing a test statistic as extreme (or more extreme) as the one calculated from the data, assuming the null hypothesis is true.
+   - A low p-value (typically less than 0.05) suggests that such extreme data is unlikely under the null hypothesis, leading to its rejection.
+
+4. **Statistical Significance**:
+   - When a test concludes "statistical significance," it means the data provides sufficient evidence to reject \(H_0\) at a predefined significance level (\(\alpha\)), often 0.05.
+
+### The Problem with P-Hacking
+1. **Inflated False Positives**:
+   - The p-value is conditional on the null hypothesis being true and the experimental procedure being followed correctly. P-hacking violates this assumption by:
+     - Testing multiple hypotheses without proper correction.
+     - Cherry-picking results or repeating experiments until a significant p-value is found.
+   - This inflates the Type I error rate, leading to a higher likelihood of false positives (erroneously rejecting \(H_0\) when it is actually true).
+
+2. **Violation of Assumptions**:
+   - Many statistical tests assume random sampling, independence, or a fixed number of hypotheses. P-hacking often violates these assumptions, invalidating the reported p-value.
+
+3. **Misleading Conclusions**:
+   - A significant p-value under p-hacking does not reflect a true effect but rather the exploitation of randomness or bias. This can mislead researchers, practitioners, and policymakers into believing a non-existent effect exists.
+
+4. **Overfitting and Non-Reproducibility**:
+   - P-hacking aligns findings to the specific data sample rather than the underlying population, resulting in overfitted models or findings that fail to generalize.
+
 ## p-Hacking vs Normal Experimentation
 
 **What is p-hacking, and what is normal experimental variation in a machine learning project?**
