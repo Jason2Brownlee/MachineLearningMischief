@@ -18,7 +18,7 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 	* [Cross-Validation](examples/seed_hacking_cross_validation.md): _Vary the seed for creating cross-validation folds in order to get the best result._
 	* [Train/Test Split](examples/seed_hacking_train_test_split.md): _Vary the seed for creating train/test splits in order to get the best result._
 	* [Learning Algorithm](examples/seed_hacking_learning_algorithm.md): _Vary the seed for the model training algorithm in order to get the best result._
-	* [Bootstrap Performance](examples/seed_hacking_bootstrap_performance.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+	* [Bootstrap Performance](examples/seed_hacking_bootstrap_performance.md): _Vary the bootstrap random seed to present the best model performance._
 * [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
 	* [Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples in order to fit a model with significantly better performance._
 	* [Feature Selection](examples/p_hacking_feature_selection.md): _Vary features in order to fit a model with significantly better performance._
