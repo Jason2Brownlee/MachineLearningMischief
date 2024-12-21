@@ -20,9 +20,9 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 	* [Learning Algorithm](examples/seed_hacking_learning_algorithm.md): _Vary the seed for the model training algorithm in order to get the best result._
 	* [Bootstrap Performance](examples/seed_hacking_bootstrap_performance.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
 * [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
-	* [Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples of a dataset in order to fit a model with significantly better performance._
-	* [Feature Selection](examples/p_hacking_feature_selection.md): _Vary feature subsets of a dataset in order to fit a model with significantly better performance._
-	* [Learning Algorithm](examples/p_hacking_learning_algorithm.md) _Vary the random numbers used by a learning algorithm in order to get a significantly better result._
+	* [Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples in order to fit a model with significantly better performance._
+	* [Feature Selection](examples/p_hacking_feature_selection.md): _Vary features in order to fit a model with significantly better performance._
+	* [Learning Algorithm](examples/p_hacking_learning_algorithm.md) _Vary the learning algorithm seed in order to get a significantly better result._
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Test Set Pruning](examples/test_set_pruning.md): _Remove hard-to-predict examples from the test set to improve results._
