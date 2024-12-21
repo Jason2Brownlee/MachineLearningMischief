@@ -1,4 +1,4 @@
-# Model Selection Hacking
+# Seed Hacking Learning Algorithm
 
 > Vary the random number seed for the model training algorithm in order to get the best result.
 

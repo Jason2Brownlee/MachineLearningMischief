@@ -1,4 +1,4 @@
-# Train/Test Split Hacking
+# Seed Hacking the Train/Test Split
 
 > Vary the random number seed for creating train/test splits in order to get the best result.
 

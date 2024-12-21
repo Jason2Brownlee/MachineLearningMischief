@@ -1,4 +1,4 @@
-# Cross-Validation Hacking
+# Seed Hacking Cross-Validation
 
 > Vary the random number seed for creating cross-validation folds in order to get the best result.
 

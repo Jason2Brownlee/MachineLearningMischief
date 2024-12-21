@@ -15,10 +15,10 @@ Reviewing examples of this type of "gaming" (data science dark arts) can remind 
 Below are examples of this type of gaming, and simple demonstrations of each:
 
 * [Seed Hacking](examples/seed_hacking.md): _Repeat an experiment with different random number seeds to get the best result._
-	* [Cross-Validation Hacking](examples/cross_validation_hacking.md): _Vary the seed for creating cross-validation folds in order to get the best result._
-	* [Train/Test Split Hacking](examples/train_test_split_hacking.md): _Vary the seed for creating train/test splits in order to get the best result._
-	* [Model Selection Hacking](examples/model_selection_hacking.md): _Vary the seed for the model training algorithm in order to get the best result._
-	* [Performance Hacking](examples/performance_hacking.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
+	* [Seed Hacking Cross-Validation](examples/seed_hacking_cross_validation.md): _Vary the seed for creating cross-validation folds in order to get the best result._
+	* [Seed Hacking the Train/Test Split](examples/seed_hacking_train_test_split.md): _Vary the seed for creating train/test splits in order to get the best result._
+	* [Seed Hacking Learning Algorithm](examples/seed_hacking_learning_algorithm.md): _Vary the seed for the model training algorithm in order to get the best result._
+	* [Seed Hack Performance Presentation](examples/seed_hacking_performance_presentation.md): _Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance._
 * [p-Hacking](examples/p_hacking.md): _Repeat a statistical hypothesis test until a significant result is achieved._
 	* [p-Hacking Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples of a dataset in order to fit a model with significantly better performance._
 	* [p-Hacking Feature Selection](examples/p_hacking_feature_selection.md): _Vary feature subsets of a dataset in order to fit a model with significantly better performance._
