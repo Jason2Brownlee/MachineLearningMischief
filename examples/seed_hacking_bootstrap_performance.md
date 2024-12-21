@@ -1,4 +1,4 @@
-# Seed Hack Performance Presentation
+# Seed Hack Bootstrap Performance
 
 > Vary the seed for a bootstrap evaluation of a final chosen model on the test set to present the best performance.
 

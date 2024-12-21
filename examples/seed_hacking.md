@@ -52,7 +52,7 @@ Some worked examples of seed hacking applied to specific aspects of a project:
 * [Seed Hacking Cross-Validation](seed_hacking_cross_validation.md): _Vary the seed for creating cross-validation folds in order to get the best result._
 * [Seed Hacking the Train/Test Split](seed_hacking_train_test_split.md): _Vary the seed for creating train/test splits in order to get the best result._
 * [Seed Hacking Learning Algorithm](seed_hacking_learning_algorithm.md): _Vary the seed for the model training algorithm in order to get the best result._
-* [Seed Hack Performance Presentation](seed_hacking_performance_presentation.md): _Vary the seed for a bootstrap of a final chosen model on the test set to present the best performance._
+* [Seed Hack Bootstrap Performance](seed_hacking_bootstrap_performance.md): _Vary the seed for a bootstrap of a final chosen model on the test set to present the best performance._
 
 More seed hacking examples for learning algorithms: [bagging](src/seed_hacking_bagging.py), [decision tree](src/seed_hacking_decision_tree.py), [gradient boosting](src/seed_hacking_gradient_boosting.py), [logistic regression](src/seed_hacking_logistic_regression.py), [multilayer perceptron](src/seed_hacking_multilayer_percepron.py), [perceptron](src/seed_hacking_perceptron.py), [random forest](src/seed_hacking_random_forest.py), [ridge classifier](src/seed_hacking_ridge_classifier.py), [sgd classifier](src/seed_hacking_sgd_classifier.py).
 
