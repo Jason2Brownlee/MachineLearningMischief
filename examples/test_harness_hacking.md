@@ -11,12 +11,16 @@ This leads to inflated performance estimates that do not hold when the model is 
 This issue is known by many names, such as:
 
 * **Comparing Too Many Hypotheses** / **Checking Too Many Models**: Testing numerous hypotheses or model configurations increases the chance of finding a model that performs well on the test data by coincidence rather than due to its inherent quality.
-* **Multiple Comparison Problem**: A statistical issue where testing multiple hypotheses increases the probability of false positives (e.g., identifying a model as superior when it's not).
+* **Multiple Comparison Problem** / **Multiple Hypothesis Testing**: A statistical issue where testing multiple hypotheses increases the probability of false positives (e.g., identifying a model as superior when it's not).
 * **Oversearching**: Excessive experimentation with hyperparameters, architectures, or algorithms can lead to "discovering" patterns that are not generalizable.
 * **Overfitting Model Selection**: When the process of selecting the best model overfits to the evaluation dataset, the chosen model's reported performance becomes unreliable.
 * **Test Harness Hacking**: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test harness performance.
 
-The test harness may in fact appear robust and have relatively low variance, such as k-fold cross-validation compared to less robust/higher variance approaches such as a single train/test split.
+Ideally (from a statistical perspective), candidate hypothesis (models) would be selected for a predictive modeling problem _before_ data is gathered, not after and not adapted to the problem in response to results on the test harness.
+
+> ... the theory of statistical inference assumes a fixed collection of hypotheses to be tested, or learning algorithms to be applied, selected non-adaptively before the data are gathered, whereas in practice data is shared and reused with hypotheses and new analyses being generated on the basis of data exploration and the outcomes of previous analyses.
+
+-- [Preserving Statistical Validity in Adaptive Data Analysis](https://arxiv.org/abs/1411.2664), 2014.
 
 ## Scenario
 
@@ -116,5 +120,5 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 * [Do ImageNet Classifiers Generalize to ImageNet?](https://arxiv.org/abs/1902.10811), 2019.
 * [Multiple Comparisons in Induction Algorithms](https://link.springer.com/article/10.1023/A:1007631014630), 2000.
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
+* [Preserving Statistical Validity in Adaptive Data Analysis](https://arxiv.org/abs/1411.2664), 2014.
 * [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
-
