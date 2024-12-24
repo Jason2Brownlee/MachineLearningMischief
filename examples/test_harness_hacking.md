@@ -10,12 +10,12 @@ This leads to inflated performance estimates that do not hold when the model is 
 
 This issue is known by many names, such as:
 
-* Comparing Too Many Hypotheses / Checking Too Many Models: Testing numerous hypotheses or model configurations increases the chance of finding a model that performs well on the test data by coincidence rather than due to its inherent quality.
-* Multiple Comparison Problem: A statistical issue where testing multiple hypotheses increases the probability of false positives (e.g., identifying a model as superior when it's not).
-* Oversearching: Excessive experimentation with hyperparameters, architectures, or algorithms can lead to "discovering" patterns that are not generalizable.
-* Overfitting Model Selection: When the process of selecting the best model overfits to the evaluation dataset, the chosen model's reported performance becomes unreliable.
-* Overfitting the Test Harness: When models are fine-tuned or selected based on a fixed test set, the test set becomes part of the training process, undermining its role as an unbiased estimator of generalization.
-* Test Harness Hacking: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test set performance.
+* **Comparing Too Many Hypotheses** / **Checking Too Many Models**: Testing numerous hypotheses or model configurations increases the chance of finding a model that performs well on the test data by coincidence rather than due to its inherent quality.
+* **Multiple Comparison Problem**: A statistical issue where testing multiple hypotheses increases the probability of false positives (e.g., identifying a model as superior when it's not).
+* **Oversearching**: Excessive experimentation with hyperparameters, architectures, or algorithms can lead to "discovering" patterns that are not generalizable.
+* **Overfitting Model Selection**: When the process of selecting the best model overfits to the evaluation dataset, the chosen model's reported performance becomes unreliable.
+* **Overfitting the Test Harness**: When models are fine-tuned or selected based on a fixed test set, the test set becomes part of the training process, undermining its role as an unbiased estimator of generalization.
+* **Test Harness Hacking**: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test set performance.
 
 ## Scenario
 
@@ -32,7 +32,9 @@ The aspects that exasperate this problem include:
 
 -- [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
 
-The risk is that the variance in model performance on the test harness will result in an optimistic basis (i.e. model's look better than they are). This bias may be larger than the difference in performance between performance estimates of different models on the test harness, resulting in Type I errors (false positive) in model selection.
+The risk is that the variance in model performance on the test harness will result in an optimistic basis (i.e. model's look better than they are).
+
+This bias may be larger than the difference in performance between performance estimates of different models on the test harness, resulting in Type I errors (false positive) in model selection.
 
 > The scale of the bias observed on some data sets is much larger than the difference in performance between learning algorithms, and so one could easily draw incorrect inferences based on the results obtained.
 
@@ -57,6 +59,8 @@ The plot above illustrates the distributions of performance metrics for two algo
 Even though Algorithm A is chosen due to its slightly higher mean performance, the variance in its performance is large enough that the difference in means may not be practically significant.
 
 This underscores the importance of considering the variability in performance and not relying solely on mean values for decision-making.
+
+
 
 ## Further Reading
 
