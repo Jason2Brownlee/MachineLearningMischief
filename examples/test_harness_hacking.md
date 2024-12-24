@@ -14,8 +14,9 @@ This issue is known by many names, such as:
 * **Multiple Comparison Problem**: A statistical issue where testing multiple hypotheses increases the probability of false positives (e.g., identifying a model as superior when it's not).
 * **Oversearching**: Excessive experimentation with hyperparameters, architectures, or algorithms can lead to "discovering" patterns that are not generalizable.
 * **Overfitting Model Selection**: When the process of selecting the best model overfits to the evaluation dataset, the chosen model's reported performance becomes unreliable.
-* **Overfitting the Test Harness**: When models are fine-tuned or selected based on a fixed test set, the test set becomes part of the training process, undermining its role as an unbiased estimator of generalization.
-* **Test Harness Hacking**: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test set performance.
+* **Test Harness Hacking**: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test harness performance.
+
+The test harness may in fact appear robust and have relatively low variance, such as k-fold cross-validation compared to less robust/higher variance approaches such as a single train/test split.
 
 ## Scenario
 
@@ -60,11 +61,56 @@ Even though Algorithm A is chosen due to its slightly higher mean performance, t
 
 This underscores the importance of considering the variability in performance and not relying solely on mean values for decision-making.
 
+## Impact
 
+The impact of overfitting the test harness manifests as **optimistic bias** in the performance of the chosen model.
+
+Here's how this unfold in a machine learning project:
+
+1. **Overfitting to the Test Harness**: Through repeated tuning or evaluation on the test harness, the chosen model exploits idiosyncrasies in the validation/test set rather than learning generalizable patterns.
+2. **Optimistic Performance Estimates**: The model appears to perform exceptionally well on the test harness, creating a false sense of superiority over other models.
+3. **Final Model Evaluation**: When the model is retrained on all available training data and evaluated on a hold-out test set (or deployed in real-world scenarios), its performance is often significantly lower than expected. This happens because the model's improvements on the test harness were based on fitting noise or dataset-specific artifacts.
+4. **Missed Opportunities**: Other models that may generalize better but were overlooked during evaluation (due to lower but more realistic performance on the test harness) might have been more suitable in practice.
+
+## Controversy
+
+It is possible that the issue of "too many model comparisons" is overblown in modern machine learning.
+
+This may be because the techniques that mitigate this type of overfitting have become best practices, such as:
+
+* Adoption of k-fold cross-validation in the test harness.
+* Adoption of repeated cross-validation to further reduce variance in performance estimates.
+* Adoption of nested cross-validation, to tune hyperparameters within each cross-validation fold.
+* Adoption of statistical hypothesis tests to support differences in model performance on the test harness.
+* Adoption of modern machine learning learning algorithms that use regularization, early stopping and similar methods.
+
+As such, overfitting the test harness may be less of a concern than it once was one or two decades ago in applied machine learning.
+
+Evidence for this is seen in large-scale machine learning competitions, like those on Kaggle.
+
+> In each competition, numerous practitioners repeatedly evaluated their progress against a holdout set that forms the basis of a public ranking available throughout the competition. Performance on a separate test set used only once determined the final ranking. By systematically comparing the public ranking with the final ranking, we assess how much participants adapted to the holdout set over the course of a competition. Our study shows, somewhat surprisingly, little evidence of substantial overfitting.
+
+-- [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+
+And:
+
+> Overall, we conclude that the classification competitions on Kaggle show little to no signs of overfitting. While there are some outlier competitions in the data, these competitions usually have pathologies such as non-i.i.d. data splits or (effectively) small test sets. Among the remaining competitions, the public and private test scores show a remarkably good correspondence. The picture becomes more nuanced among the highest scoring submissions, but the overall effect sizes of (potential) overfitting are typically small (e.g., less than 1% classification accuracy). Thus, our findings show that substantial overfitting is unlikely to occur naturally in regular machine learning workflows.
+
+-- [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+
+Additional evidence for this is seen in popular computer vision deep learning benchmark datasets on which continued performance, rather than overfitting, is observed.
+
+> Recent replication studies [16] demonstrated that the popular CIFAR-10 and ImageNet benchmarks continue to support progress despite years of intensive use. The longevity of these benchmarks perhaps suggests that overfitting to holdout data is less of a concern than reasoning from first principles might have suggested.
+
+-- [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+
+These findings suggest that test-harness hacking may be achieved by intentionally not observing modern best practices like those listed above.
 
 ## Further Reading
 
 * [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
 * [Multiple Comparisons in Induction Algorithms](https://link.springer.com/article/10.1023/A:1007631014630), 2000.
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
-* [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf)
+* [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
+
+
