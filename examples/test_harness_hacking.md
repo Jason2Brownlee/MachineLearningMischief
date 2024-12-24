@@ -84,6 +84,10 @@ This may be because the techniques that mitigate this type of overfitting have b
 * Adoption of statistical hypothesis tests to support differences in model performance on the test harness.
 * Adoption of modern machine learning learning algorithms that use regularization, early stopping and similar methods.
 
+> The adaptive data analysis literature provides a range of theoretical explanations for how the common machine learning workflow may implicitly mitigate overfitting
+
+-- [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+
 As such, overfitting the test harness may be less of a concern than it once was one or two decades ago in applied machine learning.
 
 Evidence for this is seen in large-scale machine learning competitions, like those on Kaggle.
@@ -109,8 +113,8 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 ## Further Reading
 
 * [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+* [Do ImageNet Classifiers Generalize to ImageNet?](https://arxiv.org/abs/1902.10811), 2019.
 * [Multiple Comparisons in Induction Algorithms](https://link.springer.com/article/10.1023/A:1007631014630), 2000.
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
 * [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
-
 
