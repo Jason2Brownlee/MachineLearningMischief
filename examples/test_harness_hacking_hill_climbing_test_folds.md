@@ -1,4 +1,4 @@
-# Test Harness Hacking: Hill Climb the Test Folds in Cross-Validation
+# Test Harness Hacking: Hill Climb Cross-Validation Test Folds
 
 > Adapt predictions for each cross-validation test fold over repeated trials.
 
