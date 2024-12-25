@@ -24,7 +24,8 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 	* [Feature Selection](examples/p_hacking_feature_selection.md): _Vary features in order to fit a model with significantly better performance._
 	* [Learning Algorithm](examples/p_hacking_learning_algorithm.md) _Vary the learning algorithm seed in order to get a significantly better result._
 * [Test Harness Hacking](examples/test_harness_hacking.md): _Varying models and hyperparameters to maximize test harness performance._
-	* [Hill-Climbing the Test Folds in Cross-Validation](examples/test_harness_hacking_hill_climbing_test_folds.md)
+	* [Hill Climb CV Test Folds](examples/test_harness_hacking_hill_climbing_test_folds.md): Adapt predictions for each cross-validation test fold over repeated trials.
+	* [Hill Climb CV Performance](examples/test_harness_hacking_hill_climbing_performance.md): Excessively adapt a model for cross-validation performance.
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Test Set Pruning](examples/test_set_pruning.md): _Remove hard-to-predict examples from the test set to improve results._

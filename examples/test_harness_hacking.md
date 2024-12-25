@@ -69,7 +69,8 @@ This underscores the importance of considering the variability in performance an
 
 Below are some examples of test harness hacking.
 
-- [Hill-Climb the Test Folds in Cross-Validation](test_harness_hacking_hill_climbing_test_folds.md)
+* [Hill-Climb the Test Folds in Cross-Validation](test_harness_hacking_hill_climbing_test_folds.md): Adapt predictions for each cross-validation test fold over repeated trials.
+* [Hill Climbing Cross-Valuation Performance](test_harness_hacking_hill_climbing_performance.md): Excessively adapt a model for cross-validation performance.
 
 ## Impact
 
