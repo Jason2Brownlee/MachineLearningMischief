@@ -71,6 +71,7 @@ Below are some examples of test harness hacking.
 
 * [Hill Climb Cross-Validation Test Folds](test_harness_hacking_hill_climbing_test_folds.md): Adapt predictions for each cross-validation test fold over repeated trials.
 * [Hill Climb Cross-Validation Performance](test_harness_hacking_hill_climbing_performance.md): Excessively adapt a model for cross-validation performance.
+* [Test Harness Hacking Mitigation](test_harness_hacking_mitigation.md): Modern practices (repeated k-fold cv) mitigates the risk of test harness hacking.
 
 ## Impact
 
@@ -125,8 +126,9 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 
 * [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
 * [Do ImageNet Classifiers Generalize to ImageNet?](https://arxiv.org/abs/1902.10811), 2019.
+* [Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning](https://arxiv.org/abs/1811.12808), 2018.
+* [Model Similarity Mitigates Test Set Overuse](https://arxiv.org/abs/1905.12580), 2019.
 * [Multiple Comparisons in Induction Algorithms](https://link.springer.com/article/10.1023/A:1007631014630), 2000.
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
 * [Preserving Statistical Validity in Adaptive Data Analysis](https://arxiv.org/abs/1411.2664), 2014.
 * [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
-* [Model Similarity Mitigates Test Set Overuse](https://arxiv.org/abs/1905.12580), 2019.
