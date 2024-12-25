@@ -16,7 +16,7 @@ This issue is known by many names, such as:
 * **Overfitting Model Selection**: When the process of selecting the best model overfits to the evaluation dataset, the chosen model's reported performance becomes unreliable.
 * **Test Harness Hacking**: Manipulating the evaluation process, such as by repeatedly tweaking models or hyperparameters, to artificially inflate test harness performance.
 
-Ideally (from a statistical perspective), candidate hypothesis (models) would be selected for a predictive modeling problem _before_ data is gathered, not after and not adapted to the problem in response to results on the test harness.
+Ideally (from a statistical perspective), candidate hypotheses (models) would be selected for a predictive modeling problem _before_ data is gathered, not after and not adapted to the problem in response to results on the test harness.
 
 > ... the theory of statistical inference assumes a fixed collection of hypotheses to be tested, or learning algorithms to be applied, selected non-adaptively before the data are gathered, whereas in practice data is shared and reused with hypotheses and new analyses being generated on the basis of data exploration and the outcomes of previous analyses.
 
@@ -65,6 +65,12 @@ Even though Algorithm A is chosen due to its slightly higher mean performance, t
 
 This underscores the importance of considering the variability in performance and not relying solely on mean values for decision-making.
 
+## Examples
+
+Below are some examples of test harness hacking.
+
+- [Hill-Climb the Test Folds in Cross-Validation](test_harness_hacking_hill_climbing_test_folds.md)
+
 ## Impact
 
 The impact of overfitting the test harness manifests as **optimistic bias** in the performance of the chosen model.
@@ -76,7 +82,7 @@ Here's how this unfold in a machine learning project:
 3. **Final Model Evaluation**: When the model is retrained on all available training data and evaluated on a hold-out test set (or deployed in real-world scenarios), its performance is often significantly lower than expected. This happens because the model's improvements on the test harness were based on fitting noise or dataset-specific artifacts.
 4. **Missed Opportunities**: Other models that may generalize better but were overlooked during evaluation (due to lower but more realistic performance on the test harness) might have been more suitable in practice.
 
-## Controversy
+## Push-Back
 
 It is possible that the issue of "too many model comparisons" is overblown in modern machine learning.
 
@@ -122,3 +128,4 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
 * [Preserving Statistical Validity in Adaptive Data Analysis](https://arxiv.org/abs/1411.2664), 2014.
 * [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
+* [Model Similarity Mitigates Test Set Overuse](https://arxiv.org/abs/1905.12580), 2019.

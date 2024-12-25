@@ -23,11 +23,12 @@ Below are examples of this type of gaming, and simple demonstrations of each:
 	* [Selective Sampling](examples/p_hacking_selective_sampling.md): _Vary samples in order to fit a model with significantly better performance._
 	* [Feature Selection](examples/p_hacking_feature_selection.md): _Vary features in order to fit a model with significantly better performance._
 	* [Learning Algorithm](examples/p_hacking_learning_algorithm.md) _Vary the learning algorithm seed in order to get a significantly better result._
+* [Test Harness Hacking](examples/test_harness_hacking.md): _Varying models and hyperparameters to maximize test harness performance._
+	* [Hill-Climbing the Test Folds in Cross-Validation](examples/test_harness_hacking_hill_climbing_test_folds.md)
 * [Test Set Memorization](examples/test_set_memorization.md): _Allow the model to memorize the test set and get a perfect score._
 * [Test Set Overfitting](examples/test_set_overfitting.md): _Optimizing a model for its performance on a "hold out" test set._
 * [Test Set Pruning](examples/test_set_pruning.md): _Remove hard-to-predict examples from the test set to improve results._
 * [Train/Test Split Ratio Gaming](examples/train_test_ratio_gaming.md): _Vary train/test split ratios until a desired result is achieved._
-* [Test Harness Hacking](examples/test_harness_hacking.md): _Varying models and hyperparameters to maximize test harness performance._
 * [Leaderboard Hacking](examples/leaderboard_hacking.md): _Issue predictions for a machine learning competition until a perfect score is achieved._
 * [Threshold Hacking](examples/threshold_hacking.md): _Adjusting classification thresholds to hit specific metric targets._
 
