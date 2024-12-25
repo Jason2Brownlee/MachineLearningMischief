@@ -93,12 +93,25 @@ This may be because the techniques that mitigate this type of overfitting have b
 * Adoption of k-fold cross-validation in the test harness.
 * Adoption of repeated cross-validation to further reduce variance in performance estimates.
 * Adoption of nested cross-validation, to tune hyperparameters within each cross-validation fold.
+* Adoption of corrections to cross-validation when used for model selection (e.g. 1 standard error rule).
 * Adoption of statistical hypothesis tests to support differences in model performance on the test harness.
 * Adoption of modern machine learning learning algorithms that use regularization, early stopping and similar methods.
 
 > The adaptive data analysis literature provides a range of theoretical explanations for how the common machine learning workflow may implicitly mitigate overfitting
 
 -- [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+
+And:
+
+> We propose that the computational cost of performing repeated cross-validation and nested cross-validation in the cloud have reached a level where the use of substitutes to full nested cross-validation are no longer justified.
+
+-- [Cross-validation pitfalls when selecting and assessing regression and classification models](https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-6-10), 2014.
+
+And:
+
+> Often a “one-standard error” rule is used with cross-validation, in which we choose the most parsimonious model whose error is no more than one standard error above the error of the best model.
+
+-- Page 244, [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/), 2016.
 
 As such, overfitting the test harness may be less of a concern than it once was one or two decades ago in applied machine learning.
 
@@ -125,6 +138,7 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 ## Further Reading
 
 * [A Meta-Analysis of Overfitting in Machine Learning](https://proceedings.neurips.cc/paper/2019/hash/ee39e503b6bedf0c98c388b7e8589aca-Abstract.html), 2019.
+* [Cross-validation pitfalls when selecting and assessing regression and classification models](https://jcheminf.biomedcentral.com/articles/10.1186/1758-2946-6-10), 2014.
 * [Do ImageNet Classifiers Generalize to ImageNet?](https://arxiv.org/abs/1902.10811), 2019.
 * [Model Evaluation, Model Selection, and Algorithm Selection in Machine Learning](https://arxiv.org/abs/1811.12808), 2018.
 * [Model Similarity Mitigates Test Set Overuse](https://arxiv.org/abs/1905.12580), 2019.
@@ -132,3 +146,4 @@ These findings suggest that test-harness hacking may be achieved by intentionall
 * [On Over-fitting in Model Selection and Subsequent Selection Bias in Performance Evaluation](https://www.jmlr.org/papers/volume11/cawley10a/cawley10a.pdf), 2010.
 * [Preserving Statistical Validity in Adaptive Data Analysis](https://arxiv.org/abs/1411.2664), 2014.
 * [Preventing "Overfitting" of Cross-Validation Data](https://ai.stanford.edu/~ang/papers/cv-final.pdf), 1997.
+* [The Elements of Statistical Learning](https://hastie.su.domains/ElemStatLearn/), 2016.
