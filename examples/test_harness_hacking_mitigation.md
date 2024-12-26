@@ -30,7 +30,7 @@ While exhaustive hyperparameter tuning can exploit CV, the combination of higher
 This study investigates how the number of folds and repetitions in cross-validation (CV) affect the risk of overfitting during hyperparameter tuning, specifically when using a hill-climbing algorithm to optimize hyperparameters over 100 trials.
 
 1. **Dataset Preparation**:
-   - A synthetic classification dataset is created with 200 samples and 30 features, split into a train and test set.
+   - A synthetic classification dataset is created with 200 samples and 30 features, 50/50 split into a train and test set.
 
 2. **Experimental Setup**:
    - The study evaluates combinations of k-fold CV (3, 5, 7, 10 folds) and repeated CV (1, 3, 5, and 10 repeats).
