@@ -33,8 +33,8 @@ This study investigates how the number of folds and repetitions in cross-validat
    - A synthetic classification dataset is created with 200 samples and 30 features, split into a train and test set.
 
 2. **Experimental Setup**:
-   - The study evaluates combinations of k-fold CV (3, 5, 7, 10 folds) and repeated CV (1, 3, 5 repeats).
-   - Each configuration undergoes 5 independent trials.
+   - The study evaluates combinations of k-fold CV (3, 5, 7, 10 folds) and repeated CV (1, 3, 5, and 10 repeats).
+   - Each configuration undergoes 10 independent trials.
 
 3. **Hill-Climbing Hyperparameter Tuning**:
    - For each CV configuration, a hill-climbing algorithm runs 100 iterations to optimize the `n_estimators` and `max_depth` hyperparameters of a `RandomForestClassifier`.
@@ -63,19 +63,19 @@ import matplotlib.pyplot as plt
 
 # Generate a synthetic classification dataset
 X, y = make_classification(
-    n_samples=200, n_features=30, n_informative=5, n_redundant=25, random_state=42
+    n_samples=1000, n_features=30, n_informative=5, n_redundant=25, random_state=42
 )
 
 # Create a train/test split of the dataset
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=42)
 
 # Initialize result storage for experiments
 results = []
 
 # Define the study parameters
 fold_range = [3, 5, 7, 10]  # 3 to 10 folds
-repeat_range = [1, 3, 5]  # 1 to 10 repetitions
-n_trials = 5  # Number of trials for each configuration
+repeat_range = [1, 3, 5, 10]  # 1 to 10 repetitions
+n_trials = 10  # Number of trials for each configuration
 
 # Function for hill climbing optimization
 def hill_climb(cv, X_train, y_train, X_test, y_test, n_hill_trials=100):
@@ -171,123 +171,261 @@ print(results_df.sort_values(['folds', 'repeats']))
 ### Example Output
 
 ```text
-folds=3, repeats=1, i=1, corr=0.6298745632413565, diff=0.04317033542976944
-folds=3, repeats=1, i=2, corr=0.1846694607479044, diff=0.03648899371069183
-folds=3, repeats=1, i=3, corr=0.5007118468999219, diff=0.042438329839273245
-folds=3, repeats=1, i=4, corr=0.2879759396952337, diff=0.04089092709061263
-folds=3, repeats=1, i=5, corr=0.6341440980635967, diff=0.029911891451199636
-Completed: 3 folds, 1 repeats | Avg Correlation: 0.4475, Avg Mean Diff: 0.0386
-folds=3, repeats=3, i=1, corr=0.7623783770801159, diff=0.01944815203043712
-folds=3, repeats=3, i=2, corr=0.27925381574256164, diff=0.03321158475036883
-folds=3, repeats=3, i=3, corr=0.24818307748928556, diff=0.04388339544995728
-folds=3, repeats=3, i=4, corr=0.7184012240888981, diff=0.019093931982296728
-folds=3, repeats=3, i=5, corr=0.5798007307300975, diff=0.02717262598027794
-Completed: 3 folds, 3 repeats | Avg Correlation: 0.5176, Avg Mean Diff: 0.0286
-folds=3, repeats=5, i=1, corr=0.3789626777977281, diff=0.03716864663405543
-folds=3, repeats=5, i=2, corr=-0.28757534600689555, diff=0.0425980666200792
-folds=3, repeats=5, i=3, corr=0.5567346395459242, diff=0.027225599813650116
-folds=3, repeats=5, i=4, corr=0.6325025783848724, diff=0.02511076170510132
-folds=3, repeats=5, i=5, corr=0.7396891596803272, diff=0.02035115303983226
-Completed: 3 folds, 5 repeats | Avg Correlation: 0.4041, Avg Mean Diff: 0.0305
-folds=5, repeats=1, i=1, corr=-0.011776348551674929, diff=0.04631250000000002
-folds=5, repeats=1, i=2, corr=-0.19241265688270287, diff=0.035312500000000024
-folds=5, repeats=1, i=3, corr=0.8250440734960189, diff=0.024874999999999994
-folds=5, repeats=1, i=4, corr=0.4434997520588626, diff=0.051750000000000025
-folds=5, repeats=1, i=5, corr=-0.27043847101619534, diff=0.0494375
-Completed: 5 folds, 1 repeats | Avg Correlation: 0.1588, Avg Mean Diff: 0.0415
-folds=5, repeats=3, i=1, corr=0.5853084167570692, diff=0.036520833333333315
-folds=5, repeats=3, i=2, corr=0.5629276501612064, diff=0.02704166666666666
-folds=5, repeats=3, i=3, corr=0.7089827145778376, diff=0.022145833333333313
-folds=5, repeats=3, i=4, corr=0.6406706348714379, diff=0.03627083333333332
-folds=5, repeats=3, i=5, corr=0.7851945543765236, diff=0.03235416666666664
-Completed: 5 folds, 3 repeats | Avg Correlation: 0.6566, Avg Mean Diff: 0.0309
-folds=5, repeats=5, i=1, corr=0.506085416086112, diff=0.03351249999999998
-folds=5, repeats=5, i=2, corr=0.42796686752812807, diff=0.0278
-folds=5, repeats=5, i=3, corr=0.8215171404358438, diff=0.01946249999999996
-folds=5, repeats=5, i=4, corr=0.8072909310441211, diff=0.025212499999999985
-folds=5, repeats=5, i=5, corr=0.6268606788133523, diff=0.025687499999999974
-Completed: 5 folds, 5 repeats | Avg Correlation: 0.6379, Avg Mean Diff: 0.0263
-folds=7, repeats=1, i=1, corr=-0.3622860600410274, diff=0.04641092603049123
-folds=7, repeats=1, i=2, corr=0.43170078005874174, diff=0.031197628458497988
-folds=7, repeats=1, i=3, corr=0.228096689372268, diff=0.0616328345567476
-folds=7, repeats=1, i=4, corr=0.45907394657390765, diff=0.04040767927724447
-folds=7, repeats=1, i=5, corr=0.7666141267810641, diff=0.04463212874082441
-Completed: 7 folds, 1 repeats | Avg Correlation: 0.3046, Avg Mean Diff: 0.0449
-folds=7, repeats=3, i=1, corr=0.8434628549359104, diff=0.024859119141727802
-folds=7, repeats=3, i=2, corr=0.8053096340478801, diff=0.030307782796913166
-folds=7, repeats=3, i=3, corr=0.8129667126799344, diff=0.027400197628458405
-folds=7, repeats=3, i=4, corr=0.6203740119984177, diff=0.024067805383022743
-folds=7, repeats=3, i=5, corr=0.6619482974223595, diff=0.03010973084886127
-Completed: 7 folds, 3 repeats | Avg Correlation: 0.7488, Avg Mean Diff: 0.0273
-folds=7, repeats=5, i=1, corr=0.49479024198324606, diff=0.03320101637492941
-folds=7, repeats=5, i=2, corr=0.8126341498751418, diff=0.026930265386787125
-folds=7, repeats=5, i=3, corr=0.2651519530891151, diff=0.04299096555618299
-folds=7, repeats=5, i=4, corr=0.5908699533464415, diff=0.027298277809147353
-folds=7, repeats=5, i=5, corr=0.9281179215432374, diff=0.022067476002258574
-Completed: 7 folds, 5 repeats | Avg Correlation: 0.6183, Avg Mean Diff: 0.0305
-folds=10, repeats=1, i=1, corr=0.5105811454714904, diff=0.021437499999999977
-folds=10, repeats=1, i=2, corr=0.4433898732960672, diff=0.04668749999999999
-folds=10, repeats=1, i=3, corr=0.7914480667320329, diff=0.04275000000000001
-folds=10, repeats=1, i=4, corr=0.7947261848531103, diff=0.030562499999999996
-folds=10, repeats=1, i=5, corr=-0.21439833215966733, diff=0.04981250000000003
-Completed: 10 folds, 1 repeats | Avg Correlation: 0.4651, Avg Mean Diff: 0.0382
-folds=10, repeats=3, i=1, corr=0.7611603545110889, diff=0.03481250000000001
-folds=10, repeats=3, i=2, corr=0.1888132651963422, diff=0.030666666666666655
-folds=10, repeats=3, i=3, corr=0.7913085335098206, diff=0.036291666666666667
-folds=10, repeats=3, i=4, corr=0.5603737089083655, diff=0.027979166666666652
-folds=10, repeats=3, i=5, corr=0.7326972446325504, diff=0.028354166666666635
-Completed: 10 folds, 3 repeats | Avg Correlation: 0.6069, Avg Mean Diff: 0.0316
-folds=10, repeats=5, i=1, corr=0.9160059282002866, diff=0.022924999999999984
-folds=10, repeats=5, i=2, corr=0.7248606460867622, diff=0.02012499999999996
-folds=10, repeats=5, i=3, corr=0.6691861954102255, diff=0.02302499999999999
-folds=10, repeats=5, i=4, corr=0.522650343801325, diff=0.028912499999999966
-folds=10, repeats=5, i=5, corr=0.48008889276862626, diff=0.03536249999999998
-Completed: 10 folds, 5 repeats | Avg Correlation: 0.6626, Avg Mean Diff: 0.0261
+folds=3, repeats=1, i=1, corr=0.8975081501258906, diff=0.013994529495226418
+folds=3, repeats=1, i=2, corr=0.8177792410740738, diff=0.011125753793617622
+folds=3, repeats=1, i=3, corr=0.9428830954671136, diff=0.005017053122670292
+folds=3, repeats=1, i=4, corr=0.9049809252717387, diff=0.007363626481975841
+folds=3, repeats=1, i=5, corr=0.9758504080203283, diff=0.023852118413774832
+folds=3, repeats=1, i=6, corr=0.857747359046279, diff=0.01297499843686123
+folds=3, repeats=1, i=7, corr=0.9543552148233073, diff=0.010973930692831212
+folds=3, repeats=1, i=8, corr=0.9583072215690465, diff=0.012318426279970197
+folds=3, repeats=1, i=9, corr=0.9365443080461188, diff=0.016589097467715166
+folds=3, repeats=1, i=10, corr=0.972215872219083, diff=0.01591398937065626
+Completed: 3 folds, 1 repeats | Avg Correlation: 0.9218, Avg Mean Diff: 0.0130
+folds=3, repeats=3, i=1, corr=0.9728624412333399, diff=0.006810931550553492
+folds=3, repeats=3, i=2, corr=0.8854785215597786, diff=0.01782942420380126
+folds=3, repeats=3, i=3, corr=0.9575675906128579, diff=0.014725479162157584
+folds=3, repeats=3, i=4, corr=0.9778969635559742, diff=0.019854740799525407
+folds=3, repeats=3, i=5, corr=0.9739011078616541, diff=0.021317557335128957
+folds=3, repeats=3, i=6, corr=0.9364274591948702, diff=0.015523946003575146
+folds=3, repeats=3, i=7, corr=0.9350829635734347, diff=0.012577906676606609
+folds=3, repeats=3, i=8, corr=0.9851501120289593, diff=0.014629806892239604
+folds=3, repeats=3, i=9, corr=0.9849767257721495, diff=0.010881155279801769
+folds=3, repeats=3, i=10, corr=0.9849943833757703, diff=0.018577150438079643
+Completed: 3 folds, 3 repeats | Avg Correlation: 0.9594, Avg Mean Diff: 0.0153
+folds=3, repeats=5, i=1, corr=0.9906435183380549, diff=0.009374101435682656
+folds=3, repeats=5, i=2, corr=0.9305450478665325, diff=0.019447710843373447
+folds=3, repeats=5, i=3, corr=0.9698320836611718, diff=0.013032678738907611
+folds=3, repeats=5, i=4, corr=0.9826452213379984, diff=0.018392676334078654
+folds=3, repeats=5, i=5, corr=0.9720287635544785, diff=0.016324860159199598
+folds=3, repeats=5, i=6, corr=0.9454211768270858, diff=0.01394443787124552
+folds=3, repeats=5, i=7, corr=0.9204636647370464, diff=0.010203038260827574
+folds=3, repeats=5, i=8, corr=0.9955924474911255, diff=0.012422861746386698
+folds=3, repeats=5, i=9, corr=0.9792351257750852, diff=0.012180605535915996
+folds=3, repeats=5, i=10, corr=0.9905394275428722, diff=0.01734686963422549
+Completed: 3 folds, 5 repeats | Avg Correlation: 0.9677, Avg Mean Diff: 0.0143
+folds=3, repeats=10, i=1, corr=0.9917633072174894, diff=0.013716341774282666
+folds=3, repeats=10, i=2, corr=0.9893929850040933, diff=0.015559962003703322
+folds=3, repeats=10, i=3, corr=0.9569010802478903, diff=0.015219092898540065
+folds=3, repeats=10, i=4, corr=0.9879348648553065, diff=0.013215456797248795
+folds=3, repeats=10, i=5, corr=0.9735665396739734, diff=0.017831983262390768
+folds=3, repeats=10, i=6, corr=0.971173862752053, diff=0.016002982949763
+folds=3, repeats=10, i=7, corr=0.9635668621274783, diff=0.010760243368684199
+folds=3, repeats=10, i=8, corr=0.9648722608008841, diff=0.012233203953538581
+folds=3, repeats=10, i=9, corr=0.9587285072176933, diff=0.011003018060264878
+folds=3, repeats=10, i=10, corr=0.9207755703824012, diff=0.009858052569559616
+Completed: 3 folds, 10 repeats | Avg Correlation: 0.9679, Avg Mean Diff: 0.0135
+folds=5, repeats=1, i=1, corr=0.8861934056107431, diff=0.01589999999999999
+folds=5, repeats=1, i=2, corr=0.7662794730952668, diff=0.011219999999999977
+folds=5, repeats=1, i=3, corr=0.8826187133353169, diff=0.011020000000000012
+folds=5, repeats=1, i=4, corr=0.9440121829589864, diff=0.010340000000000021
+folds=5, repeats=1, i=5, corr=0.8766129357443, diff=0.004159999999999984
+folds=5, repeats=1, i=6, corr=0.9024164969658375, diff=0.017580000000000016
+folds=5, repeats=1, i=7, corr=0.9005217405018474, diff=0.008240000000000035
+folds=5, repeats=1, i=8, corr=0.9828141793722028, diff=0.008400000000000029
+folds=5, repeats=1, i=9, corr=0.961712143471749, diff=0.021140000000000003
+folds=5, repeats=1, i=10, corr=0.9813556722050953, diff=0.006739999999999999
+Completed: 5 folds, 1 repeats | Avg Correlation: 0.9085, Avg Mean Diff: 0.0115
+folds=5, repeats=3, i=1, corr=0.9122982760466545, diff=0.009366666666666688
+folds=5, repeats=3, i=2, corr=0.9890461182715037, diff=0.009599999999999985
+folds=5, repeats=3, i=3, corr=0.9183930613020971, diff=0.0060066666666666515
+folds=5, repeats=3, i=4, corr=0.9294897940388198, diff=0.011720000000000029
+folds=5, repeats=3, i=5, corr=0.981982679087837, diff=0.012706666666666746
+folds=5, repeats=3, i=6, corr=0.9711766765002295, diff=0.01302666666666672
+folds=5, repeats=3, i=7, corr=0.9651742983090498, diff=0.007959999999999997
+folds=5, repeats=3, i=8, corr=0.9616274843010032, diff=0.010246666666666682
+folds=5, repeats=3, i=9, corr=0.991484802507542, diff=0.012240000000000055
+folds=5, repeats=3, i=10, corr=0.949354181531814, diff=0.007480000000000023
+Completed: 5 folds, 3 repeats | Avg Correlation: 0.9570, Avg Mean Diff: 0.0100
+folds=5, repeats=5, i=1, corr=0.9124335330130132, diff=0.010407999999999962
+folds=5, repeats=5, i=2, corr=0.9943967107022027, diff=0.00918799999999998
+folds=5, repeats=5, i=3, corr=0.9481474796710471, diff=0.005691999999999955
+folds=5, repeats=5, i=4, corr=0.9638374112067487, diff=0.011388
+folds=5, repeats=5, i=5, corr=0.952119476071311, diff=0.011971999999999943
+folds=5, repeats=5, i=6, corr=0.9887007143739523, diff=0.01114399999999998
+folds=5, repeats=5, i=7, corr=0.9700508321437197, diff=0.005847999999999956
+folds=5, repeats=5, i=8, corr=0.9786839027183967, diff=0.00939999999999993
+folds=5, repeats=5, i=9, corr=0.9923019529456245, diff=0.010243999999999967
+folds=5, repeats=5, i=10, corr=0.9806823785079624, diff=0.008635999999999994
+Completed: 5 folds, 5 repeats | Avg Correlation: 0.9681, Avg Mean Diff: 0.0094
+folds=5, repeats=10, i=1, corr=0.9899246985924093, diff=0.010209999999999997
+folds=5, repeats=10, i=2, corr=0.9863212431811526, diff=0.009343999999999979
+folds=5, repeats=10, i=3, corr=0.980497156341154, diff=0.010361999999999982
+folds=5, repeats=10, i=4, corr=0.9809354894495217, diff=0.01051599999999992
+folds=5, repeats=10, i=5, corr=0.9716781005974886, diff=0.009705999999999982
+folds=5, repeats=10, i=6, corr=0.98761167410509, diff=0.007167999999999995
+folds=5, repeats=10, i=7, corr=0.9939648038833919, diff=0.008125999999999956
+folds=5, repeats=10, i=8, corr=0.9929684118650098, diff=0.00977600000000004
+folds=5, repeats=10, i=9, corr=0.9916934696335423, diff=0.011239999999999965
+folds=5, repeats=10, i=10, corr=0.9900364630237838, diff=0.0058139999999999555
+Completed: 5 folds, 10 repeats | Avg Correlation: 0.9866, Avg Mean Diff: 0.0092
+folds=7, repeats=1, i=1, corr=0.9613182318742974, diff=0.009815023474178432
+folds=7, repeats=1, i=2, corr=0.6909957358983967, diff=0.006366718086295516
+folds=7, repeats=1, i=3, corr=0.9895758217003858, diff=0.005750017885088313
+folds=7, repeats=1, i=4, corr=0.9877611150535017, diff=0.007385823831880195
+folds=7, repeats=1, i=5, corr=0.9749578118659352, diff=0.011593217080259361
+folds=7, repeats=1, i=6, corr=0.9711935713591127, diff=0.00582282137268052
+folds=7, repeats=1, i=7, corr=0.9760796613233829, diff=0.006076532528504364
+folds=7, repeats=1, i=8, corr=0.9371927392344911, diff=0.01633843952604521
+folds=7, repeats=1, i=9, corr=0.9746045786830242, diff=0.012915823831880134
+folds=7, repeats=1, i=10, corr=0.9711195358371305, diff=0.011247455846188222
+Completed: 7 folds, 1 repeats | Avg Correlation: 0.9435, Avg Mean Diff: 0.0093
+folds=7, repeats=3, i=1, corr=0.9128474983896583, diff=0.010857055667337348
+folds=7, repeats=3, i=2, corr=0.9924414793688743, diff=0.009876530292868339
+folds=7, repeats=3, i=3, corr=0.9753841890858064, diff=0.0066518794246963175
+folds=7, repeats=3, i=4, corr=0.9902161753182072, diff=0.01067602652954771
+folds=7, repeats=3, i=5, corr=0.9875467068521149, diff=0.014647294880393522
+folds=7, repeats=3, i=6, corr=0.9824724251891493, diff=0.0053529637081750035
+folds=7, repeats=3, i=7, corr=0.9590765688110139, diff=0.006180702734928126
+folds=7, repeats=3, i=8, corr=0.9858973820022585, diff=0.009431569416499024
+folds=7, repeats=3, i=9, corr=0.9713070448511517, diff=0.009675288024442926
+folds=7, repeats=3, i=10, corr=0.9635099762903706, diff=0.006624511513525587
+Completed: 7 folds, 3 repeats | Avg Correlation: 0.9721, Avg Mean Diff: 0.0090
+folds=7, repeats=5, i=1, corr=0.9199378342268244, diff=0.008922989045383398
+folds=7, repeats=5, i=2, corr=0.9305605240628312, diff=0.009462680527610085
+folds=7, repeats=5, i=3, corr=0.9868414126704743, diff=0.008307379834562902
+folds=7, repeats=5, i=4, corr=0.9899484002488507, diff=0.008614039794321458
+folds=7, repeats=5, i=5, corr=0.976576733728466, diff=0.009443724569640015
+folds=7, repeats=5, i=6, corr=0.9693547315705672, diff=0.005900277218868722
+folds=7, repeats=5, i=7, corr=0.9909369574070983, diff=0.005307771070869582
+folds=7, repeats=5, i=8, corr=0.9892888145831531, diff=0.011010156494522676
+folds=7, repeats=5, i=9, corr=0.9627449539744223, diff=0.010943483120947896
+folds=7, repeats=5, i=10, corr=0.9658412890907523, diff=0.006972148446232913
+Completed: 7 folds, 5 repeats | Avg Correlation: 0.9682, Avg Mean Diff: 0.0085
+folds=7, repeats=10, i=1, corr=0.9930980639376968, diff=0.010301558238318903
+folds=7, repeats=10, i=2, corr=0.9920910968628622, diff=0.010058085177733074
+folds=7, repeats=10, i=3, corr=0.9874525701739706, diff=0.007801203890006742
+folds=7, repeats=10, i=4, corr=0.9854169402266026, diff=0.006881775095014487
+folds=7, repeats=10, i=5, corr=0.9771779515816831, diff=0.006837573217080281
+folds=7, repeats=10, i=6, corr=0.9900552860025492, diff=0.006621960652805747
+folds=7, repeats=10, i=7, corr=0.9578589198570598, diff=0.007519338251732596
+folds=7, repeats=10, i=8, corr=0.9031445620706875, diff=0.005411533646322324
+folds=7, repeats=10, i=9, corr=0.9938400095864596, diff=0.010214242119382887
+folds=7, repeats=10, i=10, corr=0.9788426400080306, diff=0.005239181757209895
+Completed: 7 folds, 10 repeats | Avg Correlation: 0.9759, Avg Mean Diff: 0.0077
+folds=10, repeats=1, i=1, corr=0.9748033758314912, diff=0.015320000000000049
+folds=10, repeats=1, i=2, corr=0.9187986740124284, diff=0.010219999999999991
+folds=10, repeats=1, i=3, corr=0.9759534155628019, diff=0.005019999999999986
+folds=10, repeats=1, i=4, corr=0.9404497799396768, diff=0.0062200000000000085
+folds=10, repeats=1, i=5, corr=0.9774883703984174, diff=0.011080000000000003
+folds=10, repeats=1, i=6, corr=0.9149008540654683, diff=0.016480000000000064
+folds=10, repeats=1, i=7, corr=0.8801191409994777, diff=0.006560000000000007
+folds=10, repeats=1, i=8, corr=0.9719343758671737, diff=0.012880000000000025
+folds=10, repeats=1, i=9, corr=0.9856023103580355, diff=0.0071200000000000195
+folds=10, repeats=1, i=10, corr=0.9556385726542705, diff=0.009180000000000035
+Completed: 10 folds, 1 repeats | Avg Correlation: 0.9496, Avg Mean Diff: 0.0100
+folds=10, repeats=3, i=1, corr=0.9818082957751972, diff=0.010593333333333219
+folds=10, repeats=3, i=2, corr=0.9314961162728049, diff=0.005919999999999988
+folds=10, repeats=3, i=3, corr=0.9127620228239297, diff=0.004453333333333281
+folds=10, repeats=3, i=4, corr=0.9810389657863505, diff=0.006766666666666591
+folds=10, repeats=3, i=5, corr=0.9918364430409649, diff=0.007466666666666555
+folds=10, repeats=3, i=6, corr=0.9395927744026121, diff=0.010773333333333244
+folds=10, repeats=3, i=7, corr=0.9885928388539656, diff=0.007373333333333213
+folds=10, repeats=3, i=8, corr=0.9036806490023385, diff=0.0070266666666665475
+folds=10, repeats=3, i=9, corr=0.9612958178459122, diff=0.008580000000000004
+folds=10, repeats=3, i=10, corr=0.9852138676111265, diff=0.006326666666666592
+Completed: 10 folds, 3 repeats | Avg Correlation: 0.9577, Avg Mean Diff: 0.0075
+folds=10, repeats=5, i=1, corr=0.9869203108957099, diff=0.008232000000000034
+folds=10, repeats=5, i=2, corr=0.989158809458989, diff=0.006472000000000011
+folds=10, repeats=5, i=3, corr=0.9468112866930535, diff=0.005743999999999982
+folds=10, repeats=5, i=4, corr=0.9555637452766133, diff=0.009019999999999985
+folds=10, repeats=5, i=5, corr=0.8867829384047247, diff=0.008167999999999996
+folds=10, repeats=5, i=6, corr=0.9388857673846408, diff=0.0054799999999999875
+folds=10, repeats=5, i=7, corr=0.9689970283669487, diff=0.005588000000000004
+folds=10, repeats=5, i=8, corr=0.980303607125597, diff=0.008103999999999974
+folds=10, repeats=5, i=9, corr=0.9873591803251196, diff=0.006583999999999992
+folds=10, repeats=5, i=10, corr=0.9543215764841885, diff=0.005707999999999978
+Completed: 10 folds, 5 repeats | Avg Correlation: 0.9595, Avg Mean Diff: 0.0069
+folds=10, repeats=10, i=1, corr=0.9895772309728519, diff=0.008010000000000012
+folds=10, repeats=10, i=2, corr=0.9371148265713927, diff=0.0056619999999999926
+folds=10, repeats=10, i=3, corr=0.9946765193420288, diff=0.007330000000000046
+folds=10, repeats=10, i=4, corr=0.9700972981521802, diff=0.006941999999999987
+folds=10, repeats=10, i=5, corr=0.9869957451350777, diff=0.009159999999999979
+folds=10, repeats=10, i=6, corr=0.943939573626107, diff=0.004751999999999973
+folds=10, repeats=10, i=7, corr=0.8887097918134683, diff=0.00497599999999995
+folds=10, repeats=10, i=8, corr=0.9915157230477832, diff=0.010015999999999867
+folds=10, repeats=10, i=9, corr=0.9869359272490404, diff=0.007609999999999974
+folds=10, repeats=10, i=10, corr=0.9840942879680609, diff=0.005351999999999967
+Completed: 10 folds, 10 repeats | Avg Correlation: 0.9674, Avg Mean Diff: 0.0070
 
 Final Results:
 
     folds  repeats  avg_correlation  avg_mean_diff
-0       3        1         0.447475       0.038580
-1       3        3         0.517603       0.028562
-2       3        5         0.404063       0.030491
-3       5        1         0.158783       0.041538
-4       5        3         0.656617       0.030867
-5       5        5         0.637944       0.026335
-6       7        1         0.304640       0.044856
-7       7        3         0.748812       0.027349
-8       7        5         0.618313       0.030498
-9      10        1         0.465149       0.038250
-10     10        3         0.606871       0.031621
-11     10        5         0.662558       0.026070
+0       3        1         0.921817       0.013012
+1       3        3         0.959434       0.015273
+2       3        5         0.967695       0.014267
+3       3       10         0.967868       0.013540
+4       5        1         0.908454       0.011474
+5       5        3         0.957003       0.010035
+6       5        5         0.968135       0.009392
+7       5       10         0.986563       0.009226
+8       7        1         0.943480       0.009331
+9       7        3         0.972070       0.008997
+10      7        5         0.968203       0.008488
+11      7       10         0.975898       0.007689
+12     10        1         0.949569       0.010008
+13     10        3         0.957732       0.007528
+14     10        5         0.959510       0.006910
+15     10       10         0.967366       0.006981
 ```
 
 ### Observations
 
 Plot of results:
 
-![](/pics/test_harness_hacking_mitigation_study.png)
+![](/pics/test_harness_hacking_mitigation_study1.png)
 
-1. **Impact of Increasing Folds**:
-   - For a fixed number of repeats (e.g., `repeats=1`):
-     - `folds=3`: `avg_correlation=0.447`, `avg_mean_diff=0.0386`.
-     - `folds=5`: `avg_correlation=0.159`, `avg_mean_diff=0.0415`.
-     - `folds=7`: `avg_correlation=0.305`, `avg_mean_diff=0.0449`.
-     - `folds=10`: `avg_correlation=0.465`, `avg_mean_diff=0.0383`.
-   - The trend suggests no clear improvement in reducing overfitting (as measured by `avg_correlation`) for `repeats=1`, though `folds=10` shows a slight improvement.
+![](/pics/test_harness_hacking_mitigation_study2.png)
 
-2. **Impact of Increasing Repeats**:
-   - For a fixed number of folds (e.g., `folds=5`):
-     - `repeats=1`: `avg_correlation=0.159`, `avg_mean_diff=0.0415`.
-     - `repeats=3`: `avg_correlation=0.657`, `avg_mean_diff=0.0309`.
-     - `repeats=5`: `avg_correlation=0.638`, `avg_mean_diff=0.0263`.
-   - Increasing repeats leads to higher `avg_correlation` and lower `avg_mean_diff`, indicating a reduction in overfitting.
+Here’s an analysis of the experiment results based on the provided data:
 
-3. **Impact of Combining Folds and Repeats**:
-   - The best results (highest `avg_correlation` and lowest `avg_mean_diff`) are achieved with both high folds and high repeats:
-     - `folds=10`, `repeats=5`: `avg_correlation=0.663`, `avg_mean_diff=0.0261`.
-   - This combination shows the most significant reduction in overfitting.
+#### 1. Trends in Average Correlation
+- **General Trend**:
+  - As the number of repeats increases, the average correlation tends to improve for all fold values.
+  - This indicates that more repeats lead to more stable and consistent results, likely due to better statistical reliability.
 
-1. Increasing the **number of repeats** has a more consistent and significant effect on reducing overfitting than increasing the number of folds in this study.
-2. A combination of both higher folds and repeats provides the most substantial reduction in overfitting, as seen in the best-performing configuration (`folds=10`, `repeats=5`).
-3. Using very few folds (e.g., `folds=3`) or repeats (e.g., `repeats=1`) generally results in less effective mitigation of overfitting, with lower `avg_correlation` and higher `avg_mean_diff`.
+- **Impact of Folds**:
+  - For **3 folds**, the correlation starts high (0.92) and stabilizes around 0.96-0.97 with increasing repeats.
+  - For **5 folds**, correlation is slightly lower initially (0.91) but improves significantly with more repeats, reaching a peak at 10 repeats (0.986).
+  - For **7 folds**, the correlation starts higher (0.94), improves consistently, but peaks slightly lower than 5 folds (around 0.975-0.968).
+  - For **10 folds**, the correlation is generally high but improves more modestly compared to other fold values, peaking around 0.96-0.97.
+
+- **Key Observations**:
+  - More folds combined with higher repeats generally provide better correlations.
+  - 5 folds with 10 repeats show the highest correlation (0.986), suggesting it is an optimal balance.
+
+#### 2. Trends in Average Mean Difference
+- **General Trend**:
+  - As the number of repeats increases, the average mean difference consistently decreases across all fold values.
+  - This suggests that repeated experiments help to minimize variability and bring the mean difference closer to zero.
+
+- **Impact of Folds**:
+  - For **3 folds**, the mean difference starts around 0.013 and gradually decreases with more repeats.
+  - For **5 folds**, it starts lower (0.011) and decreases significantly to around 0.009 at 10 repeats.
+  - For **7 folds**, the mean difference starts lower still (0.009) and shows the most dramatic improvement, dropping to 0.007 at 10 repeats.
+  - For **10 folds**, the mean difference begins at 0.010 and also improves to 0.007 but shows diminishing returns with higher repeats.
+
+- **Key Observations**:
+  - Higher fold values, such as 7 or 10 folds, generally produce lower mean differences, particularly when paired with a higher number of repeats.
+
+#### 3. Balancing Correlation and Mean Difference
+- **Trade-Offs**:
+  - While 5 folds with 10 repeats yields the highest correlation (0.986), it does not produce the smallest mean difference.
+  - 7 folds with 10 repeats achieves a slightly lower correlation (0.975) but has one of the smallest mean differences (0.007).
+
+- **Optimal Configuration**:
+  - If correlation is prioritized, 5 folds and 10 repeats is optimal.
+  - If minimizing mean difference is more important, 7 or 10 folds with 10 repeats might be preferable.
+
+#### 4. Recommendations for Future Experiments
+- **Choose Higher Repeats**:
+  - Increasing the number of repeats provides diminishing returns beyond 10 but is generally effective at stabilizing results.
+
+- **Optimize Fold Selection**:
+  - Depending on the metric of interest, 5 folds for correlation or 7 folds for mean difference are promising choices.
+
+- **Investigate Trade-Offs Further**:
+  - Explore whether a compromise between correlation and mean difference exists, possibly at intermediate fold values (e.g., 6 or 8).
+
+
 
