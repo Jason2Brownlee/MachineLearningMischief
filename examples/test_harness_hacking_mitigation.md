@@ -45,7 +45,7 @@ This study investigates how the number of folds and repetitions in cross-validat
    - Overfitting is characterized by a decrease in correlation and an increase in the mean absolute difference.
 
 5. **Recording and Analysis**:
-   - The study aggregates results for each combination of folds and repeats, computing the average correlation and mean absolute difference over 5 trials.
+   - The study aggregates results for each combination of folds and repeats, computing the average correlation and mean absolute difference over 10 trials.
 
 The results are expected to show that increasing the number of CV folds and/or repetitions reduces overfitting, as reflected by:
 - **Higher correlation** between CV and hold-out scores.
@@ -371,7 +371,7 @@ Final Results:
 
 ### Observations
 
-Plot of results:
+Plots of results:
 
 ![](/pics/test_harness_hacking_mitigation_study1.png)
 
